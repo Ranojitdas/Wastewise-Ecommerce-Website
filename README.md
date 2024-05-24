@@ -1,1 +1,1 @@
-# Wastewise-Ecommerce-app
+# Wastewise-Ecommerce-Website
