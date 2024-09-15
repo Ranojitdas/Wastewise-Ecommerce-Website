@@ -1,0 +1,2002 @@
+  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Ecommerce(Waste_sell).css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <section>
+        <!-- MAIN CONTAINER -->
+        <div id="container">
+            <!-- SHOP NAME -->
+            <div id="shopName"><a href="ABCD.html"> <b>WASTE</b>WISE</a></div>
+                <!-- COLLCETIONS ON WEBSITE -->
+                <div id="collection">
+                    <div id="clothing"><a href="#recycled"> RECYCLED ITEMS</a></div>
+                    <div id="accessories"><a href="#recycled items"> OLD ITEMS</a></div>
+                </div>
+                <!-- SEARCH SECTION -->
+                <div id="search">
+                    <i class="fas fa-search search"></i>
+                    <input type="text" id="input" name="searchBox" placeholder="Search for Recycled items and Accessories">
+                </div>
+                <!-- USER SECTION (CART AND USER ICON) -->
+                <div id="user">
+                    <a href="cart.html"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
+                    <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
+                </div>
+        </div>
+
+    </section>
+</header>
+
+
+    <section>
+        <div id="containerSlider">
+            <div id="slidingImage"> <img src="Banner.jpg" alt="image1"> </div>
+        </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+    $(document).ready(function()
+    {
+    $('#containerSlider').slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        });
+    });
+</script>
+             
+          <!-- ------------------------------------------ -->
+                       <!-- PRODUCTS -->
+          <!---------------------------------------------- -->
+
+
+<section class="section service">
+    <div class="container">
+
+      <ul class="service-list">
+
+        <li class="service-item">
+          <div class="item-icon">
+            <img src="service-icon-1.png" width="40" height="40" loading="lazy" alt="Truck icon">
+          </div>
+
+          <h3 class="h3 item-title">Free Shipping</h3>
+        </li>
+
+        <li class="service-item">
+          <div class="item-icon">
+            <img src="service-icon-2.png" width="40" height="40" loading="lazy"
+              alt="Payment card icon">
+          </div>
+
+          <h3 class="h3 item-title">Safe Payment</h3>
+        </li>
+
+        <li class="service-item">
+          <div class="item-icon">
+            <img src="service-icon-3.png" width="40" height="40" loading="lazy" alt="Helpline icon">
+          </div>
+
+          <h3 class="h3 item-title">24/7 Support</h3>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+  <br><br>
+
+
+                   <!-- ----------------------------- -->
+                          <!-- PRODUCT CARDS -->
+                  <!-------------------------------------->
+                  <section class="section product">
+                    <div class="container" id="recycled">
+            
+                      <p class="section-subtitle"> -- Recycled Products --</p>
+            
+                      <h2 class="h2 section-title">All Recyclable Items</h2>
+            
+                      <ul class="filter-list">
+            
+                        <li>
+                          <button class="filter-btn active">
+                            <img src="bio waste new/Bio plastic products.jpg" width="20" alt="" class="default">
+            
+                            <img src="./assets/images/filter-1-active.png" width="20" alt="" class="color">
+            
+                            <p class="filter-text">Recycled Items</p>
+                          </button>
+                        </li>
+            
+                        <li>
+                          <button class="filter-btn">
+                            <img src="./assets/images/filter-2.png" width="20" alt="" class="default">
+            
+                            <img src="./assets/images/filter-2-active.png" width="20" alt="" class="color">
+            
+                            <p class="filter-text">Old Items</p>
+                          </button>
+                        </li>
+            
+                        <li>
+                          <button class="filter-btn">
+                            <img src="./assets/images/filter-3.png" width="20" alt="" class="default">
+            
+                            <img src="./assets/images/filter-3-active.png" width="20" alt="" class="color">
+            
+                            <p class="filter-text">E-Waste Items</p>
+                          </button>
+                        </li>
+            
+                        <li>
+                          <button class="filter-btn">
+                            <img src="./assets/images/filter-1.png" width="20" alt="" class="default">
+            
+                            <img src="./assets/images/filter-1-active.png" width="20" alt="" class="color">
+            
+                            <p class="filter-text">Bio Items</p>
+                          </button>
+                        </li>
+            
+                      </ul>
+            
+                      <ul class="grid-list">
+            
+                        <li>
+                          <div class="product-card">
+            
+                            <figure class="card-banner">
+                              <img src="recycled items new/crafts.jpg" width="189" height="189" loading="lazy" alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Wishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="rating-wrapper">
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                            </div>
+            
+                            <h3 class="h4 card-title">
+                              <a href="./product-details.html">Home Decors</a>
+                            </h3>
+            
+                            <div class="price-wrapper">
+                              <del class="del">₹1500</del>
+            
+                              <data class="price" value="85.00">₹1000</data>
+                            </div>
+            
+                            <button class="btn btn-primary">Add to Cart</button>
+            
+                          </div>
+                        </li>
+            
+                        <li>
+                          <div class="product-card">
+            
+                            <figure class="card-banner">
+                              <img src="recycled items new/earphones.jpg" width="189" height="189" loading="lazy" alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Wishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="rating-wrapper">
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                            </div>
+            
+                            <h3 class="h4 card-title">
+                              <a href="./product-details.html">Electronics Accessories</a>
+                            </h3>
+            
+                            <div class="price-wrapper">
+                              <del class="del">₹1500</del>
+            
+                              <data class="price" value="85.00">₹1000</data>
+                            </div>
+            
+                            <button class="btn btn-primary">Add to Cart</button>
+            
+                          </div>
+                        </li>
+            
+                        <li>
+                          <div class="product-card">
+            
+                            <figure class="card-banner">
+                              <img src="recycled items new/electrical components.jpg" width="189" height="189" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="rating-wrapper">
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                            </div>
+            
+                            <h3 class="h4 card-title">
+                              <a href="./product-details.html">Electronics</a>
+                            </h3>
+            
+                            <div class="price-wrapper">
+                              <del class="del">₹1500</del>
+            
+                              <data class="price" value="85.00">₹1000</data>
+                            </div>
+            
+                            <button class="btn btn-primary">Add to Cart</button>
+            
+                          </div>
+                        </li>
+            
+                        <li>
+                          <div class="product-card">
+            
+                            <figure class="card-banner">
+                              <img src="recycled items new/furniture.jpg" width="189" height="189" loading="lazy" alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="rating-wrapper">
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                            </div>
+            
+                            <h3 class="h4 card-title">
+                              <a href="./product-details.html">Furniture</a>
+                            </h3>
+            
+                            <div class="price-wrapper">
+                              <del class="del">₹1500</del>
+            
+                              <data class="price" value="85.00">₹1000</data>
+                            </div>
+            
+                            <button class="btn btn-primary">Add to Cart</button>
+            
+                          </div>
+                        </li>
+            
+                        <li>
+                          <div class="product-card">
+            
+                            <figure class="card-banner">
+                              <img src="recycled items new/Glass.jpg" width="189" height="189" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="rating-wrapper">
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                            </div>
+            
+                            <h3 class="h4 card-title">
+                              <a href="./product-details.html">Glassware</a>
+                            </h3>
+            
+                            <div class="price-wrapper">
+                              <del class="del">₹1500</del>
+            
+                              <data class="price" value="85.00">₹1000</data>
+                            </div>
+            
+                            <button class="btn btn-primary">Add to Cart</button>
+            
+                          </div>
+                        </li>
+            
+                        <li>
+                          <div class="product-card">
+            
+                            <figure class="card-banner">
+                              <img src="recycled items new/paper.jpg" width="189" height="189" loading="lazy" alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="rating-wrapper">
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                            </div>
+            
+                            <h3 class="h4 card-title">
+                              <a href="./product-details.html">Recycled Paper</a>
+                            </h3>
+            
+                            <div class="price-wrapper">
+                              <del class="del">₹1500</del>
+            
+                              <data class="price" value="85.00">₹1000</data>
+                            </div>
+            
+                            <button class="btn btn-primary">Add to Cart</button>
+            
+                          </div>
+                        </li>
+            
+                        <li>
+                          <div class="product-card">
+            
+                            <figure class="card-banner">
+                              <img src="recycled items new/plastic.jpg" width="189" height="189" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="rating-wrapper">
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                            </div>
+            
+                            <h3 class="h4 card-title">
+                              <a href="./product-details.html">Recycled Plastics</a>
+                            </h3>
+            
+                            <div class="price-wrapper">
+                              <del class="del">₹1500</del>
+            
+                              <data class="price" value="85.00">₹1000</data>
+                            </div>
+            
+                            <button class="btn btn-primary">Add to Cart</button>
+            
+                          </div>
+                        </li>
+            
+                        <li>
+                          <div class="product-card">
+            
+                            <figure class="card-banner">
+                              <img src="recycled items new/textiles.jpg" width="189" height="189" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="rating-wrapper">
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                            </div>
+            
+                            <h3 class="h4 card-title">
+                              <a href="./product-details.html">textiles</a>
+                            </h3>
+            
+                            <div class="price-wrapper">
+                              <del class="del">₹1500</del>
+            
+                              <data class="price" value="85.00">₹1000</data>
+                            </div>
+            
+                            <button class="btn btn-primary">Add to Cart</button>
+            
+                          </div>
+                        </li>
+            
+                      </ul>
+            
+                    </div>
+                  </section>
+            
+                  <!-- 
+                    - #TOP PRODUCT
+                  -->
+            
+                  <section class="section top-product">
+                    <div class="container" id="recycled items">
+            
+                      <p class="section-subtitle"> -- Old Items--</p>
+            
+                      <h2 class="h2 section-title">Old Items</h2>
+            
+                      <ul class="top-product-list grid-list">
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/furniture.jpg" width="100" height="100" loading="lazy"
+                                alt="Antique Furniture">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Antique Furniture</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/book.jpg" width="100" height="100" loading="lazy" alt="Books">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Books</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/coins.jpg" width="100" height="100" loading="lazy"
+                                alt="Old Book">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Collectibles and memorabilia</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/craft.jpg" width="100" height="100" loading="lazy" alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Thrifted Home Decors</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/lamp.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Pre Loved Arts and Crafts</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/laptop.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Refurbished Appliances</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/craft.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Crafts and Vases</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/appliances.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Old Appliances</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new old items/furniture.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Furniture</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                      </ul>
+            
+                    </div>
+                  </section>
+            
+                         <!-- ----------------------------------- -->
+            
+                                       <!-- E-WASTE ITEMS -->
+            
+                         <!-- ------------------------------------ -->
+            
+            
+            
+                  <section class="section top-product">
+                    <div class="container">
+            
+                      <p class="section-subtitle"> -- E-Waste Items--</p>
+            
+                      <h2 class="h2 section-title">E-Waste Items</h2>
+            
+                      <ul class="top-product-list grid-list">
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/audio and video equipments.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Audio and Video Equipments</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/Batteries and power series.jpg" width="100" height="100" loading="lazy" alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Batteries and Power Supplies</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/cables and wiring.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Cables and Wiring</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/computer and laptop.jpg" width="100" height="100" loading="lazy" alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Wishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Computers and Laptops</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/electrical appliances.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Electrical Appliances</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/Gaming device recycling.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Gaming Device Recycling</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/Office electronics.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Wishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Office Electronics</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/Smartphone and accessories.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Smartphones and Accessories</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="new e waste/cables and wiring.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Electrical Components</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                      </ul>
+            
+                    </div>
+                  </section>
+                    
+                               <!-- --- --------------------- -->
+            
+                                    <!-- BIO ITEMS -->
+            
+                               <!-- ------------------------- -->
+            
+                  <section class="section top-product">
+                    <div class="container">
+            
+                      <p class="section-subtitle"> -- Bio Items--</p>
+            
+                      <h2 class="h2 section-title">Bio Items</h2>
+            
+                      <ul class="top-product-list grid-list">
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/Bio plastic products.jpg" width="100" height="100" loading="lazy"
+                                alt="Bio Plastic Glasses">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Bio Plastic Glasses</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/Biodegradable packaging.jpg" width="100" height="100" loading="lazy" alt="Handcraft Paper Bags">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Handcraft Paper Bags</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/compostable.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Compostables</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/Ecofriendly.jpg" width="100" height="100" loading="lazy" alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Eco Friendly Cleaning Supplies</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/NaturalFibers clothsNaturalFibers cloths.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Wishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Natural Fibres</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/Organic food.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Organic Foods</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/Plant based.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Plant Based Products</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/sustainable gardening.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Gardening Materials</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                        <li class="top-product-item">
+                          <div class="product-card top-product-card">
+            
+                            <figure class="card-banner">
+                              <img src="bio waste new/Biodegradable packaging.jpg" width="100" height="100" loading="lazy"
+                                alt="Recycled Items">
+            
+                              <div class="btn-wrapper">
+                                <button class="product-btn" aria-label="Add to Whishlist">
+                                  <ion-icon name="heart-outline"></ion-icon>
+            
+                                  <div class="tooltip">Add to Whishlist</div>
+                                </button>
+            
+                                <button class="product-btn" aria-label="Quick View">
+                                  <ion-icon name="eye-outline"></ion-icon>
+            
+                                  <div class="tooltip">Quick View</div>
+                                </button>
+                              </div>
+                            </figure>
+            
+                            <div class="card-content">
+            
+                              <div class="rating-wrapper">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                              </div>
+            
+                              <h3 class="h4 card-title">
+                                <a href="./product-details.html">Biodegradable packaging</a>
+                              </h3>
+            
+                              <div class="price-wrapper">
+                                <del class="del">₹1500</del>
+            
+                                <data class="price" value="85.00">₹1000</data>
+                              </div>
+            
+                              <button class="btn btn-primary">Add to Cart</button>
+            
+                            </div>
+            
+                          </div>
+                        </li>
+            
+                      </ul>
+            
+                    </div>
+                  </section>
+            
+         <!-- ------------------------------------- -->
+                      <!-- FOOTER -->
+       <!--------------------------------------------- -->
+
+    <!-- <footer>
+        <section>    
+            <div id="containerFooter">
+                
+                <div id="webFooter">
+                    <h3> Recycled Items</h3>
+                    <p> Recycled Items </p>
+                    <p> Recycled Items </p>
+                    <p> Recycled Items </p>
+                    <p> Recycled Items </p>
+                </div>
+                <div id="webFooter">
+                    <h3> Recycled Items </h3>
+                    <p> home </p>
+                    <p> about </p>
+                    <p> contact </p>
+                </div>
+                <div id="webFooter">
+                    <h3> Recycled Items </h3>
+                    <p> Recycled Items </p>
+                    <p> Recycled Items </p>
+                    <p> Recycled Items </p>
+                    <p> Recycled Items</p>
+                    <p>Recycled Items</p>
+                </div>
+                <div id="webFooter">
+                    <h3> address </h3>
+                    <p> Recycled Items</p>
+                    <p> Recycled Items </p>
+                    <p> Recycled Items </p>
+                    <p> Recycled Items </p>
+                </div>
+            </div>
+            <div id="credit"><a href="https://linkedin.com/in/priyanka-sharma-b79401142"> @SIH 2023 </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a href="#" target="_blank"> GOVERNMENT OF KERALA </a></div>
+        </section>
+
+    </footer> -->
+    <footer>
+      <div class="container flex footer-container">
+          <a href="#" class="company-logo">
+              <img src="Waste Wise(1).png" alt="company-logo">
+          </a>
+
+          <div class="link-col flex">
+              <h3>Explore
+              </h3>
+              <a href="#" class="hover-links"> Explore Our Services
+              </a>
+              <a href="#" class="hover-links">Latest News and Updates
+              </a>
+              <a href="#" class="hover-links">Discover Our Products</a> 
+
+              <a href="#" class="hover-links">Explore Green Initiatives
+              </a>
+              <a href="#" class="hover-links">Find Local Community Events
+              </a>
+          </div>
+
+          <div class="link-col flex">
+              <h3> Connect
+              </h3>
+              <a href="#" class="hover-links"> Connect with Our Community</a>
+              <a href="#" class="hover-links">Follow Us on Social Media
+              </a>
+              <a href="#" class="hover-links"> Partner and Collaborate
+
+              </a>
+              <a href="#" class="hover-links">  Join Our Newsletter
+              </a>
+              <a href="#" class="hover-links">   Customer Support and FAQs
+              </a>
+          </div>
+
+          <div class="link-col flex">
+              <h3>About Us
+              </h3>
+              <a href="#" class="hover-links"> Our Mission and Values
+              </a>
+              <a href="#" class="hover-links">    Contact Information
+              </a>
+              <a href="#" class="hover-links"> Careers and Opportunities
+              </a>
+              <a href="#" class="hover-links">Customers Review</a>
+              <a href="#" class="hover-links"> Terms of Service and Privacy Policy</a>
+          </div>
+      </div>
+  </footer>
+
+  <div class="sub-footer">
+      <div class="container flex sub-footer-con">
+          <a href="#" class="hover-links">Privacy Policy</a>
+          <a href="#" class="hover-links">Terms & Conditions</a>
+          <a href="#" class="hover-links">Security Information</a>
+          <a href="#" class="hover-links"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="hover-links"><i class="fa-brands fa-twitter"></i></a>
+
+      </div>
+  </div>
+    <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+</body>
+</html>
