@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Collection - WasteWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="collection.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-banner">
+        <div class="container">
+            <p class="banner-text">Schedule Your Waste Pickup - Making Recycling Effortless</p>
+        </div>
+    </div>
+
+    <nav>
+        <div class="container main-nav flex">
+            <a href="home.html" class="company-logo">
+                <h2><b>WASTE</b>WISE</h2>
+            </a>
+
+            <div class="nav-links" id="nav-links">
+                <ul class="flex">
+                    <li><a href="home.html" class="hover-links">Home</a></li>
+                    <li><a href="index.html" class="hover-links">Marketplace</a></li>
+                    <li><a href="collection.html" class="hover-links">Collection</a></li>
+                    <li><a href="education.html" class="hover-links">Education</a></li>
+                    <li><a href="impact.html" class="hover-links">Impact</a></li>
+                </ul>
+            </div>
+
+            <a href="#" class="nav-toggle" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container header-section flex">
+            <div class="header-left">
+                <h1>Waste Collection Service</h1>
+                <p>Schedule convenient pickups for all types of waste. Our collection service handles e-waste, recyclables, organic waste, and more.</p>
+            </div>
+            <div class="header-right">
+                <img src="https://images.pexels.com/photos/3952048/pexels-photo-3952048.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Waste Collection">
+            </div>
+        </div>
+    </header>
+
+    <section class="collection-types">
+        <div class="container">
+            <h2>What We Collect</h2>
+            <div class="collection-grid">
+                <div class="collection-card">
+                    <div class="collection-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#46d754" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3>E-Waste</h3>
+                    <p>Electronics, computers, phones, batteries</p>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#46d754" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Household Waste</h3>
+                    <p>Furniture, appliances, general recyclables</p>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#46d754" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Organic Waste</h3>
+                    <p>Food waste, yard waste, compostables</p>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#46d754" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                            <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                            <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3>Plastics & Glass</h3>
+                    <p>Bottles, containers, packaging materials</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule-section">
+        <div class="container">
+            <h2>Schedule a Pickup</h2>
+            <div class="schedule-form-container">
+                <form class="schedule-form" id="scheduleForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Pickup Address</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wasteType">Waste Type</label>
+                        <select id="wasteType" name="wasteType" required>
+                            <option value="">Select waste type</option>
+                            <option value="ewaste">E-Waste</option>
+                            <option value="household">Household Waste</option>
+                            <option value="organic">Organic Waste</option>
+                            <option value="plastics">Plastics & Glass</option>
+                            <option value="paper">Paper & Cardboard</option>
+                            <option value="mixed">Mixed Recyclables</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <select id="time" name="time" required>
+                            <option value="">Select time slot</option>
+                            <option value="morning">Morning (8 AM - 12 PM)</option>
+                            <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                            <option value="evening">Evening (4 PM - 7 PM)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Estimated Quantity</label>
+                        <select id="quantity" name="quantity" required>
+                            <option value="">Select quantity</option>
+                            <option value="small">Small (1-2 bags)</option>
+                            <option value="medium">Medium (3-5 bags)</option>
+                            <option value="large">Large (6+ bags)</option>
+                            <option value="bulk">Bulk Collection</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Any special instructions or items that need special handling"></textarea>
+                    </div>
+
+                    <button type="submit" class="primary-btn">Schedule Pickup</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Schedule</h3>
+                    <p>Fill out the form and select your preferred date and time</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Prepare</h3>
+                    <p>Sort your waste and have it ready for collection</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Collect</h3>
+                    <p>Our team arrives at your location to collect the waste</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Recycle</h3>
+                    <p>We process and recycle your waste responsibly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container flex footer-container">
+            <a href="home.html" class="company-logo">
+                <h3><b>WASTE</b>WISE</h3>
+            </a>
+
+            <div class="link-col flex">
+                <h3>Features</h3>
+                <a href="index.html" class="hover-links">Marketplace</a>
+                <a href="collection.html" class="hover-links">Waste Collection</a>
+                <a href="education.html" class="hover-links">Education Hub</a>
+                <a href="impact.html" class="hover-links">Impact Tracker</a>
+            </div>
+
+            <div class="link-col flex">
+                <h3>Company</h3>
+                <a href="home.html#about" class="hover-links">About Us</a>
+                <a href="#" class="hover-links">Contact</a>
+            </div>
+
+            <div class="link-col flex">
+                <h3>Support</h3>
+                <a href="#" class="hover-links">Help Center</a>
+                <a href="#" class="hover-links">FAQs</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sub-footer">
+        <div class="container flex sub-footer-con">
+            <p>2024 WasteWise. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+    <script src="collection.js"></script>
+</body>
+</html>

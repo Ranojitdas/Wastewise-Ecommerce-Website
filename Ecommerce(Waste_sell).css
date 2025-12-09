@@ -51,12 +51,17 @@
                     {
                         font-weight: bold;
                         display: grid;
-                        grid-template-columns: 1fr 1fr;
+                        grid-template-columns: repeat(4, 1fr);
+                        gap: 15px;
                     }
                     #collection a
                     {
                         text-decoration: none;
                         color: rgb(29, 29, 29);
+                    }
+                    #clothing a:hover
+                    {
+                        color: #46d754;
                     }
                     
                     .search
@@ -1621,4 +1626,42 @@
                       background-color: var(--thumbBG) ;
                       border-radius: 6px;
                       border: 2.2px solid var(--scrollbarBG);
+                    }
+
+                    footer {
+                      background-color: #1a1a1a;
+                    }
+
+                    footer .company-logo h3 {
+                      color: white;
+                      font-size: 1.5rem;
+                    }
+
+                    footer .company-logo h3 b {
+                      font-weight: 900;
+                    }
+
+                    footer .link-col h3 {
+                      color: white;
+                    }
+
+                    footer .link-col .hover-links {
+                      color: #d9d9d9;
+                    }
+
+                    footer .link-col .hover-links:hover {
+                      color: #46d754;
+                    }
+
+                    .sub-footer {
+                      background-color: #0d0d0d;
+                    }
+
+                    .sub-footer-con p {
+                      color: #d9d9d9;
+                    }
+
+                    .sub-footer-con .hover-links {
+                      color: #d9d9d9;
+                      font-size: 1.5rem;
                     }

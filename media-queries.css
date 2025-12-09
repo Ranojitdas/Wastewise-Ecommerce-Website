@@ -20,6 +20,7 @@
         width: 100%;
         padding-block: 20px;
         transition: 0.5s ease-in-out;
+        z-index: 999;
     }
 
     .nav-links.active{
@@ -62,6 +63,19 @@
     .rg-view{
         display:inline-block;
      }
+
+    #collection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-link {
+        max-width: 100%;
+    }
+
+    .big-feature-container,
+    .row-reverse {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -143,9 +157,13 @@
     .lg-view{
         display:none;
      }
- 
+
     .rg-view{
         display:inline-block;
      }
+
+    #collection {
+        grid-template-columns: 1fr;
+    }
 
 }

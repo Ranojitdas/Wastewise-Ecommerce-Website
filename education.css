@@ -1,0 +1,229 @@
+.stats-section {
+    padding: 80px var(--padding-inline-section);
+    background: linear-gradient(135deg, #46d754 0%, #3bc248 100%);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.stat-card {
+    text-align: center;
+    color: white;
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.stat-card p {
+    font-size: 1rem;
+    color: white;
+}
+
+.topics-section {
+    padding: 80px var(--padding-inline-section);
+    background-color: #f8f9fa;
+}
+
+.topics-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.topic-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+}
+
+.topic-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.topic-content {
+    padding: 30px;
+}
+
+.topic-content h3 {
+    margin-bottom: 15px;
+    color: var(--primary-text-color);
+}
+
+.topic-content p {
+    margin-bottom: 20px;
+}
+
+.topic-list {
+    list-style: none;
+    padding: 0;
+}
+
+.topic-list li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: var(--secondary-text-color);
+}
+
+.topic-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--green-theme-color);
+    font-weight: bold;
+}
+
+.recycling-guide {
+    padding: 80px var(--padding-inline-section);
+}
+
+.recycling-guide h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.guide-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.guide-icon {
+    margin-bottom: 20px;
+}
+
+.guide-card h3 {
+    margin-bottom: 20px;
+    color: var(--primary-text-color);
+}
+
+.guide-details p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.guide-details strong {
+    color: var(--primary-text-color);
+}
+
+.tips-section {
+    padding: 80px var(--padding-inline-section);
+    background-color: #f8f9fa;
+}
+
+.tips-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.tip-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.tip-card h3 {
+    margin-bottom: 20px;
+    color: var(--green-theme-color);
+    font-size: 1.5rem;
+}
+
+.tip-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tip-card li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: var(--secondary-text-color);
+}
+
+.tip-card li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--green-theme-color);
+    font-weight: bold;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #46d754 0%, #3bc248 100%);
+}
+
+footer {
+    background-color: #1a1a1a;
+}
+
+footer .company-logo h3 {
+    color: white;
+}
+
+footer .company-logo h3 b {
+    font-weight: 900;
+}
+
+footer .link-col h3 {
+    color: white;
+}
+
+footer .link-col .hover-links {
+    color: #d9d9d9;
+}
+
+footer .link-col .hover-links:hover {
+    color: var(--green-theme-color);
+}
+
+.sub-footer {
+    background-color: #0d0d0d;
+}
+
+.sub-footer-con {
+    color: #d9d9d9;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-card h3 {
+        font-size: 2rem;
+    }
+}

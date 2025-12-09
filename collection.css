@@ -1,0 +1,182 @@
+.collection-types {
+    padding: 80px var(--padding-inline-section);
+    background-color: #f8f9fa;
+}
+
+.collection-types h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.collection-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(70, 215, 84, 0.2);
+}
+
+.collection-icon {
+    margin-bottom: 20px;
+}
+
+.collection-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+}
+
+.schedule-section {
+    padding: 80px var(--padding-inline-section);
+}
+
+.schedule-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.schedule-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary-text-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--green-theme-color);
+}
+
+.schedule-form button {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.how-it-works {
+    padding: 80px var(--padding-inline-section);
+    background-color: #f8f9fa;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.step-card {
+    text-align: center;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #46d754 0%, #3bc248 100%);
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.step-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+}
+
+@media (max-width: 768px) {
+    .schedule-form {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-form-container {
+        padding: 30px 20px;
+    }
+}
+
+footer {
+    background-color: #1a1a1a;
+}
+
+footer .company-logo h3 {
+    color: white;
+}
+
+footer .company-logo h3 b {
+    font-weight: 900;
+}
+
+footer .link-col h3 {
+    color: white;
+}
+
+footer .link-col .hover-links {
+    color: #d9d9d9;
+}
+
+footer .link-col .hover-links:hover {
+    color: var(--green-theme-color);
+}
+
+.sub-footer {
+    background-color: #0d0d0d;
+}
+
+.sub-footer-con {
+    color: #d9d9d9;
+}
