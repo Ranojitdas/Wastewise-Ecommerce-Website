@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - WasteWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <p class="banner-text">Free Shipping on Orders Over ₹500</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container main-nav flex">
+            <a href="index.html" class="company-logo" aria-label="WasteWise home">
+                <h2><b>WASTE</b>WISE</h2>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <ul class="flex" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html" class="nav-link">Home</a></li>
+                    <li role="none"><a role="menuitem" href="store.html" class="nav-link">Marketplace</a></li>
+                    <li role="none"><a role="menuitem" href="collection.html" class="nav-link">Collection</a></li>
+                    <li role="none"><a role="menuitem" href="education.html" class="nav-link">Education</a></li>
+                    <li role="none"><a role="menuitem" href="impact.html" class="nav-link">Impact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Header -->
+    <section class="cart-header">
+        <div class="container">
+            <h1><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
+            <p>Review your items before checkout</p>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-container">
+                <!-- Cart Items -->
+                <div class="cart-items" id="cartItems">
+                    <div class="empty-cart" id="emptyCart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h2>Your cart is empty</h2>
+                        <p>Add some eco-friendly products to get started!</p>
+                        <a href="store.html" class="primary-btn">Continue Shopping</a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <h2>Order Summary</h2>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal (<span id="itemCount">0</span> items)</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="shipping">₹0</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Tax (18%)</span>
+                        <span id="tax">₹0</span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="total">₹0</span>
+                    </div>
+                    
+                    <button class="primary-btn checkout-btn" onclick="proceedToCheckout()">
+                        Proceed to Checkout
+                    </button>
+                    
+                    <a href="store.html" class="secondary-btn">Continue Shopping</a>
+                    
+                    <div class="eco-impact">
+                        <i class="fas fa-leaf"></i>
+                        <p>This purchase helps reduce waste and supports sustainable practices!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><b>WASTE</b>WISE</h3>
+                        <p>Transforming waste into wealth through sustainable solutions.</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Marketplace</a></li>
+                        <li><a href="collection.html">Collection</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="track.html">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 WasteWise. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+    <script src="components/navbar.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

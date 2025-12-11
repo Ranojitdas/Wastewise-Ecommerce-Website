@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Collection - WasteWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="track.css">
+    <link rel="stylesheet" href="media-queries.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <p class="banner-text">Track Your Waste Collection in Real-Time</p>
+        </div>
+    </div>
+
+    <!-- Modern Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container main-nav flex">
+            <a href="index.html" class="company-logo" aria-label="WasteWise home">
+                <h2><b>WASTE</b>WISE</h2>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <ul class="flex" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html" class="nav-link">Home</a></li>
+                    <li role="none"><a role="menuitem" href="store.html" class="nav-link">Marketplace</a></li>
+                    <li role="none"><a role="menuitem" href="collection.html" class="nav-link">Collection</a></li>
+                    <li role="none"><a role="menuitem" href="education.html" class="nav-link">Education</a></li>
+                    <li role="none"><a role="menuitem" href="impact.html" class="nav-link">Impact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Track Hero Section -->
+    <section class="track-hero">
+        <div class="container">
+            <div class="track-hero-content">
+                <h1>Track Your Collection</h1>
+                <p>Enter your tracking ID to monitor your waste collection status in real-time</p>
+                
+                <div class="tracking-search">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="trackingInput" placeholder="Enter Tracking ID (e.g., WW123456)" maxlength="10">
+                        <button class="track-btn" onclick="trackCollection()">
+                            <i class="fas fa-location-arrow"></i>
+                            Track Now
+                        </button>
+                    </div>
+                    <p class="helper-text">Don't have a tracking ID? <a href="collection.html">Schedule a pickup</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Results Section -->
+    <section class="tracking-results" id="trackingResults" style="display: none;">
+        <div class="container">
+            <div class="results-container">
+                <!-- Collection Info Card -->
+                <div class="collection-info-card">
+                    <div class="info-header">
+                        <div class="tracking-id-badge">
+                            <i class="fas fa-barcode"></i>
+                            <span id="displayTrackingId">WW123456</span>
+                        </div>
+                        <div class="status-badge" id="statusBadge">
+                            <span class="status-dot"></span>
+                            <span id="statusText">In Progress</span>
+                        </div>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <label>Pickup Date</label>
+                                <span id="pickupDate">Dec 12, 2025</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <label>Time Slot</label>
+                                <span id="timeSlot">Morning (8 AM - 12 PM)</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-recycle"></i>
+                            <div>
+                                <label>Waste Type</label>
+                                <span id="wasteType">E-Waste</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-weight-hanging"></i>
+                            <div>
+                                <label>Quantity</label>
+                                <span id="quantity">Medium (3-5 bags)</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <label>Pickup Location</label>
+                                <span id="location">123 Green Street, Eco City</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <label>Contact Person</label>
+                                <span id="contactPerson">John Doe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="progress-tracker-card">
+                    <h3>Collection Progress</h3>
+                    <div class="timeline">
+                        <div class="timeline-item completed" data-status="confirmed">
+                            <div class="timeline-dot">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Booking Confirmed</h4>
+                                <p>Your collection request has been confirmed</p>
+                                <span class="time">Dec 10, 2025 - 2:30 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item completed" data-status="assigned">
+                            <div class="timeline-dot">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Driver Assigned</h4>
+                                <p>Collection agent has been assigned to your request</p>
+                                <span class="time">Dec 11, 2025 - 10:15 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item active" data-status="ontheway">
+                            <div class="timeline-dot">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>On The Way</h4>
+                                <p>Driver is heading to your location</p>
+                                <span class="time">Expected at 9:30 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item pending" data-status="collected">
+                            <div class="timeline-dot">
+                                <i class="fas fa-box-open"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Collected</h4>
+                                <p>Waste has been collected from your location</p>
+                                <span class="time">Pending</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item pending" data-status="processing">
+                            <div class="timeline-dot">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Processing</h4>
+                                <p>Waste is being processed at our facility</p>
+                                <span class="time">Pending</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item pending" data-status="completed">
+                            <div class="timeline-dot">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Completed</h4>
+                                <p>Collection process completed successfully</p>
+                                <span class="time">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Driver Info -->
+                <div class="driver-info-card">
+                    <h3>Driver Information</h3>
+                    <div class="driver-details">
+                        <div class="driver-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="driver-info">
+                            <h4 id="driverName">Mike Johnson</h4>
+                            <p id="driverRole">Certified Collection Agent</p>
+                            <div class="driver-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.8 (152 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="driver-actions">
+                        <button class="action-btn call-btn">
+                            <i class="fas fa-phone"></i>
+                            Call Driver
+                        </button>
+                        <button class="action-btn message-btn">
+                            <i class="fas fa-comment"></i>
+                            Message
+                        </button>
+                    </div>
+                    <div class="vehicle-info">
+                        <div class="vehicle-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Vehicle: Truck #TRK-4521</span>
+                        </div>
+                        <div class="vehicle-item">
+                            <i class="fas fa-id-card"></i>
+                            <span>License: DL-3XY-2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Actions -->
+                <div class="action-cards">
+                    <div class="action-card">
+                        <i class="fas fa-history"></i>
+                        <h4>View History</h4>
+                        <p>Check your past collections</p>
+                        <a href="#" class="card-link">View All <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-calendar-plus"></i>
+                        <h4>Schedule New</h4>
+                        <p>Book another collection</p>
+                        <a href="collection.html" class="card-link">Schedule <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-headset"></i>
+                        <h4>Need Help?</h4>
+                        <p>Contact our support team</p>
+                        <a href="#" class="card-link">Get Support <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Tracking Section -->
+    <section class="recent-tracking">
+        <div class="container">
+            <h2>Recent Collections</h2>
+            <div class="recent-grid">
+                <div class="recent-card">
+                    <div class="recent-header">
+                        <span class="tracking-number">WW125489</span>
+                        <span class="status-tag completed-tag">Completed</span>
+                    </div>
+                    <div class="recent-info">
+                        <p><i class="fas fa-recycle"></i> Household Waste</p>
+                        <p><i class="fas fa-calendar"></i> Dec 5, 2025</p>
+                    </div>
+                    <button class="view-details-btn" onclick="loadTracking('WW125489')">View Details</button>
+                </div>
+
+                <div class="recent-card">
+                    <div class="recent-header">
+                        <span class="tracking-number">WW123456</span>
+                        <span class="status-tag progress-tag">In Progress</span>
+                    </div>
+                    <div class="recent-info">
+                        <p><i class="fas fa-laptop"></i> E-Waste</p>
+                        <p><i class="fas fa-calendar"></i> Dec 12, 2025</p>
+                    </div>
+                    <button class="view-details-btn" onclick="loadTracking('WW123456')">View Details</button>
+                </div>
+
+                <div class="recent-card">
+                    <div class="recent-header">
+                        <span class="tracking-number">WW120987</span>
+                        <span class="status-tag scheduled-tag">Scheduled</span>
+                    </div>
+                    <div class="recent-info">
+                        <p><i class="fas fa-leaf"></i> Organic Waste</p>
+                        <p><i class="fas fa-calendar"></i> Dec 15, 2025</p>
+                    </div>
+                    <button class="view-details-btn" onclick="loadTracking('WW120987')">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><b>WASTE</b>WISE</h3>
+                        <p>Transforming waste into wealth through sustainable solutions.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Marketplace</a></li>
+                        <li><a href="collection.html">Collection</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe for eco-friendly tips</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 WasteWise. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+    <script src="components/navbar.js"></script>
+    <script src="track.js"></script>
+</body>
+</html>

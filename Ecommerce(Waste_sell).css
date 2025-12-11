@@ -683,35 +683,6 @@
                             padding: 0 25px;
                         }
                     }
-                    #containerSlider
-                    {
-                        margin: auto;
-                        width: 90%;
-                        text-align: center;
-                        padding-top: 100px;
-                        box-sizing: border-box;
-                    }
-                    #containerSlider img
-                    {
-                        width: 100%;
-                        height: 140%;
-                        text-align: center;
-                        align-content: center;
-                    }
-                    @media(max-width: 732px)
-                    {
-                        #containerSlider img
-                        {
-                            height: 12em;
-                        }
-                    }
-                    @media(max-width: 500px)
-                    {
-                        #containerSlider img
-                        {
-                            height: 10em;
-                        }
-                    }
                     
                                     /* ------------------------------- */
                                           /* PRODUCT-CARD by ranojit das */

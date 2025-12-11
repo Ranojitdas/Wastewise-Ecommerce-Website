@@ -69,7 +69,8 @@
     }
 
     .feature-link {
-        max-width: 100%;
+        flex: 0 1 calc(50% - 15px);
+        max-width: calc(50% - 15px);
     }
 
     .big-feature-container,
@@ -93,8 +94,12 @@
         text-align: center;
     }
 
+    .feature-link {
+        flex: 0 1 calc(50% - 10px);
+    }
+
     .features-card {
-        min-width: calc(50% - 10px);
+        padding: 30px 20px;
     }
 
     .big-feature-container {
@@ -142,13 +147,12 @@
     h2 {
         font-size: 1.5rem;
     }
-
     p {
         font-size: 1rem;
     }
  
-    .features-card{
-        min-width: 100%;
+    .feature-link {
+        flex: 0 1 100%;
     }
 
     .examples-cards{

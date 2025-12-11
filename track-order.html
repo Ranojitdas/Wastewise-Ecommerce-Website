@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order - WasteWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="track-order.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <p class="banner-text">Track Your Order in Real-Time</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container main-nav flex">
+            <a href="index.html" class="company-logo" aria-label="WasteWise home">
+                <h2><b>WASTE</b>WISE</h2>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <ul class="flex" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html" class="nav-link">Home</a></li>
+                    <li role="none"><a role="menuitem" href="store.html" class="nav-link">Marketplace</a></li>
+                    <li role="none"><a role="menuitem" href="collection.html" class="nav-link">Collection</a></li>
+                    <li role="none"><a role="menuitem" href="education.html" class="nav-link">Education</a></li>
+                    <li role="none"><a role="menuitem" href="impact.html" class="nav-link">Impact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Track Order Hero -->
+    <section class="track-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1><i class="fas fa-box"></i> Track Your Order</h1>
+                <p>Enter your order ID to see the latest delivery status</p>
+                
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="orderIdInput" placeholder="Enter Order ID (e.g., WW123456)" maxlength="8">
+                    <button onclick="trackOrder()">Track Order</button>
+                </div>
+
+                <div class="quick-links">
+                    <a href="track.html"><i class="fas fa-recycle"></i> Track Collection</a>
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i> View Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Result -->
+    <section class="tracking-result" id="trackingResult" style="display: none;">
+        <div class="container">
+            <!-- Order Info Card -->
+            <div class="order-info-card">
+                <div class="order-header">
+                    <div>
+                        <h2>Order #<span id="orderNumber"></span></h2>
+                        <p class="order-date">Placed on <span id="orderDate"></span></p>
+                    </div>
+                    <div class="order-status-badge" id="orderStatusBadge">
+                        <span id="orderStatus"></span>
+                    </div>
+                </div>
+
+                <div class="order-details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <span class="detail-label">Expected Delivery</span>
+                            <span class="detail-value" id="deliveryDate"></span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-credit-card"></i>
+                        <div>
+                            <span class="detail-label">Payment Method</span>
+                            <span class="detail-value" id="paymentMethod"></span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-rupee-sign"></i>
+                        <div>
+                            <span class="detail-label">Total Amount</span>
+                            <span class="detail-value" id="totalAmount"></span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="detail-label">Delivery Address</span>
+                            <span class="detail-value" id="deliveryAddress"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Timeline -->
+            <div class="timeline-card">
+                <h3><i class="fas fa-route"></i> Order Journey</h3>
+                <div class="order-timeline" id="orderTimeline">
+                    <!-- Timeline will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Order Items -->
+            <div class="items-card">
+                <h3><i class="fas fa-box-open"></i> Order Items</h3>
+                <div class="order-items" id="orderItems">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Delivery Partner Info -->
+            <div class="delivery-partner-card" id="deliveryPartnerCard" style="display: none;">
+                <h3><i class="fas fa-shipping-fast"></i> Delivery Partner</h3>
+                <div class="partner-info">
+                    <div class="partner-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="partner-details">
+                        <h4 id="partnerName"></h4>
+                        <p id="partnerVehicle"></p>
+                        <div class="partner-rating">
+                            <i class="fas fa-star"></i>
+                            <span id="partnerRating"></span>
+                            <span class="rating-count">(<span id="partnerReviews"></span> reviews)</span>
+                        </div>
+                    </div>
+                    <div class="partner-actions">
+                        <a href="tel:+919876543210" class="contact-btn">
+                            <i class="fas fa-phone"></i> Call
+                        </a>
+                        <a href="sms:+919876543210" class="contact-btn">
+                            <i class="fas fa-sms"></i> SMS
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="help-section">
+                <div class="help-card">
+                    <i class="fas fa-headset"></i>
+                    <h4>Need Help?</h4>
+                    <p>Contact our customer support</p>
+                    <a href="#" class="secondary-btn">Get Support</a>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-undo"></i>
+                    <h4>Return Order</h4>
+                    <p>Easy returns within 7 days</p>
+                    <a href="#" class="secondary-btn">Start Return</a>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-file-invoice"></i>
+                    <h4>Download Invoice</h4>
+                    <p>Get your order invoice</p>
+                    <a href="#" class="secondary-btn">Download</a>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="recent-orders-card">
+                <h3>Your Recent Orders</h3>
+                <div class="recent-orders-grid">
+                    <div class="recent-order-item">
+                        <div class="recent-order-info">
+                            <h4>Order #WW789012</h4>
+                            <p>Dec 8, 2025 • ₹2,450</p>
+                            <span class="status-tag delivered">Delivered</span>
+                        </div>
+                        <a href="#" onclick="trackOrder('WW789012')" class="track-link">Track</a>
+                    </div>
+                    <div class="recent-order-item">
+                        <div class="recent-order-info">
+                            <h4>Order #WW654321</h4>
+                            <p>Dec 5, 2025 • ₹1,890</p>
+                            <span class="status-tag delivered">Delivered</span>
+                        </div>
+                        <a href="#" onclick="trackOrder('WW654321')" class="track-link">Track</a>
+                    </div>
+                    <div class="recent-order-item">
+                        <div class="recent-order-info">
+                            <h4>Order #WW345678</h4>
+                            <p>Nov 28, 2025 • ₹3,200</p>
+                            <span class="status-tag delivered">Delivered</span>
+                        </div>
+                        <a href="#" onclick="trackOrder('WW345678')" class="track-link">Track</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- No Result Message -->
+    <section class="no-result" id="noResult" style="display: none;">
+        <div class="container">
+            <div class="no-result-content">
+                <i class="fas fa-search"></i>
+                <h2>Order Not Found</h2>
+                <p>We couldn't find an order with ID "<span id="searchedId"></span>"</p>
+                <p class="help-text">Please check your order ID and try again, or contact support for assistance.</p>
+                <div class="no-result-actions">
+                    <button onclick="location.reload()" class="primary-btn">Try Again</button>
+                    <a href="store.html" class="secondary-btn">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><b>WASTE</b>WISE</h3>
+                        <p>Transforming waste into wealth through sustainable solutions.</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Marketplace</a></li>
+                        <li><a href="collection.html">Collection</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 WasteWise. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+    <script src="components/navbar.js"></script>
+    <script src="track-order.js"></script>
+</body>
+</html>

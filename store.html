@@ -1,108 +1,78 @@
-  
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Marketplace - WasteWise</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Ecommerce(Waste_sell).css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <section>
-        <!-- MAIN CONTAINER -->
-        <div id="container">
-            <!-- SHOP NAME -->
-            <div id="shopName"><a href="index.html"> <b>WASTE</b>WISE</a></div>
-                <!-- COLLCETIONS ON WEBSITE -->
-                <div id="collection">
-                    <div id="clothing"><a href="index.html">Home</a></div>
-                    <div id="clothing"><a href="store.html">Marketplace</a></div>
-                    <div id="clothing"><a href="collection.html">Collection</a></div>
-                    <div id="clothing"><a href="education.html">Education</a></div>
-                    <div id="clothing"><a href="impact.html">Impact</a></div>
-                </div>
-                <!-- SEARCH SECTION -->
-                <div id="search">
-                    <i class="fas fa-search search"></i>
-                    <input type="text" id="input" name="searchBox" placeholder="Search for Recycled items and Accessories">
-                </div>
-                <!-- USER SECTION (CART AND USER ICON) -->
-                <div id="user">
-                    <a href="cart.html"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
-                    <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
-                </div>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <p class="banner-text">Discover Eco-Friendly Products and Recycled Materials</p>
         </div>
-
-    </section>
-</header>
-
-
-    <section>
-        <div id="containerSlider">
-            <div id="slidingImage"> <img src="Banner.jpg" alt="image1"> </div>
-        </div>
-</section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script>
-    $(document).ready(function()
-    {
-    $('#containerSlider').slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        });
-    });
-</script>
-             
-          <!-- ------------------------------------------ -->
-                       <!-- PRODUCTS -->
-          <!---------------------------------------------- -->
-
-
-<section class="section service">
-    <div class="container">
-
-      <ul class="service-list">
-
-        <li class="service-item">
-          <div class="item-icon">
-            <img src="service-icon-1.png" width="40" height="40" loading="lazy" alt="Truck icon">
-          </div>
-
-          <h3 class="h3 item-title">Free Shipping</h3>
-        </li>
-
-        <li class="service-item">
-          <div class="item-icon">
-            <img src="service-icon-2.png" width="40" height="40" loading="lazy"
-              alt="Payment card icon">
-          </div>
-
-          <h3 class="h3 item-title">Safe Payment</h3>
-        </li>
-
-        <li class="service-item">
-          <div class="item-icon">
-            <img src="service-icon-3.png" width="40" height="40" loading="lazy" alt="Helpline icon">
-          </div>
-
-          <h3 class="h3 item-title">24/7 Support</h3>
-        </li>
-
-      </ul>
-
     </div>
-  </section>
-  <br><br>
 
+    <!-- Modern Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container main-nav flex">
+            <a href="index.html" class="company-logo" aria-label="WasteWise home">
+                <h2><b>WASTE</b>WISE</h2>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <ul class="flex" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html" class="nav-link">Home</a></li>
+                    <li role="none"><a role="menuitem" href="store.html" class="nav-link">Marketplace</a></li>
+                    <li role="none"><a role="menuitem" href="collection.html" class="nav-link">Collection</a></li>
+                    <li role="none"><a role="menuitem" href="education.html" class="nav-link">Education</a></li>
+                    <li role="none"><a role="menuitem" href="impact.html" class="nav-link">Impact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Marketplace Header -->
+    <section class="marketplace-header">
+        <div class="container">
+            <div class="marketplace-header-content">
+                <div class="page-title">
+                    <h1>Eco-Friendly Marketplace</h1>
+                    <p>Discover sustainable products made from recycled materials</p>
+                </div>
+                
+                <div class="marketplace-actions">
+                    <div class="search-section">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Search for recycled items and accessories...">
+                        </div>
+                    </div>
+                    
+                    <div class="user-actions">
+                        <button class="cart-btn" onclick="window.location.href='cart.html'">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                        <button class="user-btn">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
                    <!-- ----------------------------- -->
                           <!-- PRODUCT CARDS -->
@@ -1938,9 +1908,7 @@
             <div id="credit"><a href="https://linkedin.com/in/priyanka-sharma-b79401142"> @SIH 2023 </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a href="#" target="_blank"> GOVERNMENT OF KERALA </a></div>
         </section>
 
-    </footer> -->
-    <footer>
-      <div class="container flex footer-container">
+
           <a href="#" class="company-logo">
               <img src="Waste Wise(1).png" alt="company-logo">
           </a>
@@ -1990,16 +1958,100 @@
       </div>
   </footer>
 
-  <div class="sub-footer">
-      <div class="container flex sub-footer-con">
-          <a href="#" class="hover-links">Privacy Policy</a>
-          <a href="#" class="hover-links">Terms & Conditions</a>
-          <a href="#" class="hover-links">Security Information</a>
-          <a href="#" class="hover-links"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" class="hover-links"><i class="fa-brands fa-twitter"></i></a>
 
-      </div>
-  </div>
+    <!-- Modern Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><b>WASTE</b>WISE</h3>
+                        <p>Transforming waste into wealth through sustainable solutions and eco-friendly practices.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Marketplace</a></li>
+                        <li><a href="collection.html">Collection</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Waste Collection</a></li>
+                        <li><a href="#">Recycling Programs</a></li>
+                        <li><a href="#">Education & Awareness</a></li>
+                        <li><a href="#">Community Outreach</a></li>
+                        <li><a href="#">Corporate Solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-section newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest eco-friendly tips and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                        <p><i class="fas fa-envelope"></i> info@wastewise.com</p>
+                        <p><i class="fas fa-phone"></i> +91 XXXX XXX XXX</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 WasteWise. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms of Service</a>
+                        <span>•</span>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+    <script src="components/navbar.js"></script>
+    <script src="Ecommerce(Waste_sell).js"></script>
 </body>
 </html>

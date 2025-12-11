@@ -12,31 +12,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Top Banner -->
     <div class="top-banner">
         <div class="container">
             <p class="banner-text">Learn, Act, and Make a Difference for Our Planet</p>
         </div>
     </div>
 
-    <nav>
+    <!-- Modern Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
         <div class="container main-nav flex">
-            <a href="index.html" class="company-logo">
+            <a href="index.html" class="company-logo" aria-label="WasteWise home">
                 <h2><b>WASTE</b>WISE</h2>
             </a>
 
+            <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
             <div class="nav-links" id="nav-links">
-                <ul class="flex">
-                    <li><a href="index.html" class="hover-links">Home</a></li>
-                    <li><a href="store.html" class="hover-links">Marketplace</a></li>
-                    <li><a href="collection.html" class="hover-links">Collection</a></li>
-                    <li><a href="education.html" class="hover-links">Education</a></li>
-                    <li><a href="impact.html" class="hover-links">Impact</a></li>
+                <ul class="flex" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html" class="nav-link">Home</a></li>
+                    <li role="none"><a role="menuitem" href="store.html" class="nav-link">Marketplace</a></li>
+                    <li role="none"><a role="menuitem" href="collection.html" class="nav-link">Collection</a></li>
+                    <li role="none"><a role="menuitem" href="education.html" class="nav-link">Education</a></li>
+                    <li role="none"><a role="menuitem" href="impact.html" class="nav-link">Impact</a></li>
                 </ul>
             </div>
-
-            <a href="#" class="nav-toggle" id="nav-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </a>
         </div>
     </nav>
 
@@ -47,11 +49,12 @@
                 <p>Learn about recycling, sustainability, and how you can make a positive impact on the environment through informed choices.</p>
             </div>
             <div class="header-right">
-                <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Education">
+                <img src="https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=800" alt="People learning about recycling" loading="lazy">
             </div>
         </div>
     </header>
 
+    <main id="main-content">
     <section class="stats-section">
         <div class="container">
             <div class="stats-grid">
@@ -84,12 +87,7 @@
                     <div class="topic-content">
                         <h3>Recycling Basics</h3>
                         <p>Understanding what can and cannot be recycled is the first step to effective waste management.</p>
-                        <ul class="topic-list">
-                            <li>Know your recycling symbols</li>
-                            <li>Clean and dry recyclables</li>
-                            <li>Separate different materials</li>
-                            <li>Avoid contamination</li>
-                        </ul>
+                        <a href="course.html?course=recycling-basics" class="course-btn">Start Course</a>
                     </div>
                 </div>
 
@@ -98,12 +96,7 @@
                     <div class="topic-content">
                         <h3>E-Waste Management</h3>
                         <p>Electronic waste contains valuable materials and harmful substances that require special handling.</p>
-                        <ul class="topic-list">
-                            <li>Never throw electronics in trash</li>
-                            <li>Remove personal data before disposal</li>
-                            <li>Use certified e-waste recyclers</li>
-                            <li>Consider donation or repair</li>
-                        </ul>
+                        <a href="course.html?course=ewaste-management" class="course-btn">Start Course</a>
                     </div>
                 </div>
 
@@ -112,12 +105,7 @@
                     <div class="topic-content">
                         <h3>Composting</h3>
                         <p>Turn your organic waste into nutrient-rich compost for gardens and plants.</p>
-                        <ul class="topic-list">
-                            <li>Start with fruit and vegetable scraps</li>
-                            <li>Add brown materials like leaves</li>
-                            <li>Maintain proper moisture</li>
-                            <li>Turn compost regularly</li>
-                        </ul>
+                        <a href="course.html?course=composting" class="course-btn">Start Course</a>
                     </div>
                 </div>
 
@@ -126,12 +114,7 @@
                     <div class="topic-content">
                         <h3>Plastic Reduction</h3>
                         <p>Simple changes in daily habits can significantly reduce plastic waste.</p>
-                        <ul class="topic-list">
-                            <li>Use reusable bags and bottles</li>
-                            <li>Avoid single-use plastics</li>
-                            <li>Choose products with minimal packaging</li>
-                            <li>Support plastic-free alternatives</li>
-                        </ul>
+                        <a href="course.html?course=plastic-reduction" class="course-btn">Start Course</a>
                     </div>
                 </div>
             </div>
@@ -257,41 +240,96 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container flex footer-container">
-            <a href="index.html" class="company-logo">
-                <h3><b>WASTE</b>WISE</h3>
-            </a>
+    </main>
 
-            <div class="link-col flex">
-                <h3>Features</h3>
-                <a href="store.html" class="hover-links">Marketplace</a>
-                <a href="collection.html" class="hover-links">Waste Collection</a>
-                <a href="education.html" class="hover-links">Education Hub</a>
-                <a href="impact.html" class="hover-links">Impact Tracker</a>
+    <!-- Modern Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><b>WASTE</b>WISE</h3>
+                        <p>Transforming waste into wealth through sustainable solutions and eco-friendly practices.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Marketplace</a></li>
+                        <li><a href="collection.html">Collection</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="impact.html">Impact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Waste Collection</a></li>
+                        <li><a href="#">Recycling Programs</a></li>
+                        <li><a href="#">Education & Awareness</a></li>
+                        <li><a href="#">Community Outreach</a></li>
+                        <li><a href="#">Corporate Solutions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Track Your Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-section newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest eco-friendly tips and updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                        <p><i class="fas fa-envelope"></i> info@wastewise.com</p>
+                        <p><i class="fas fa-phone"></i> +91 XXXX XXX XXX</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="link-col flex">
-                <h3>Company</h3>
-                <a href="index.html#about" class="hover-links">About Us</a>
-                <a href="#" class="hover-links">Contact</a>
-            </div>
-
-            <div class="link-col flex">
-                <h3>Support</h3>
-                <a href="#" class="hover-links">Help Center</a>
-                <a href="#" class="hover-links">FAQs</a>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 WasteWise. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms of Service</a>
+                        <span>•</span>
+                        <a href="#">Cookie Policy</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <div class="sub-footer">
-        <div class="container flex sub-footer-con">
-            <p>2024 WasteWise. All rights reserved.</p>
-        </div>
-    </div>
-
     <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+    <script src="components/navbar.js"></script>
     <script src="education.js"></script>
 </body>
 </html>
