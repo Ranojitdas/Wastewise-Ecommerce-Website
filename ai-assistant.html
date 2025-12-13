@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - WasteWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ai-assistant.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <p class="banner-text">🤖 AI-Powered Waste Management Solutions</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container main-nav flex">
+            <a href="index.html" class="company-logo" aria-label="WasteWise home">
+                <h2><b>WASTE</b>WISE</h2>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <ul class="flex" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html" class="nav-link">Home</a></li>
+                    <li role="none"><a role="menuitem" href="store.html" class="nav-link">Marketplace</a></li>
+                    <li role="none"><a role="menuitem" href="collection.html" class="nav-link">Collection</a></li>
+                    <li role="none"><a role="menuitem" href="education.html" class="nav-link">Education</a></li>
+                    <li role="none"><a role="menuitem" href="impact.html" class="nav-link">Impact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- AI Hero Section -->
+    <section class="ai-hero">
+        <div class="container">
+            <div class="ai-hero-content">
+                <div class="ai-badge">
+                    <i class="fas fa-robot"></i>
+                    <span>AI POWERED</span>
+                </div>
+                <h1>Smart Waste Management Assistant</h1>
+                <p>Let AI help you identify, classify, and manage your waste efficiently</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Features Grid -->
+    <section class="ai-features-section">
+        <div class="container">
+            <div class="ai-features-grid">
+                
+                <!-- Waste Classifier -->
+                <div class="ai-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>AI Waste Classifier</h3>
+                    <p>Upload or capture a photo to identify waste type instantly</p>
+                    <a href="classifier.html" class="primary-btn">
+                        <i class="fas fa-upload"></i> Try Classifier
+                    </a>
+                </div>
+
+                <!-- Chatbot -->
+                <div class="ai-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>AI Support Chatbot</h3>
+                    <p>Get instant answers to your waste management questions</p>
+                    <a href="chatbot.html" class="primary-btn">
+                        <i class="fas fa-comment-dots"></i> Start Chat
+                    </a>
+                </div>
+
+                <!-- Price Estimator -->
+                <div class="ai-feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Smart Price Estimator</h3>
+                    <p>AI-powered estimation of your waste item's value</p>
+                    <a href="estimator.html" class="primary-btn">
+                        <i class="fas fa-rupee-sign"></i> Estimate Value
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Waste Classifier Modal -->
+    <div class="ai-modal" id="classifierModal">
+        <div class="ai-modal-content classifier-modal">
+            <button class="close-modal" onclick="closeModal('classifierModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2><i class="fas fa-camera"></i> AI Waste Classifier</h2>
+            <p class="modal-subtitle">Upload an image to identify waste type</p>
+
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drop image here or click to upload</h3>
+                <p>Supports: JPG, PNG, JPEG</p>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="classification-result" id="classificationResult" style="display: none;">
+                <div class="result-image" id="resultImage"></div>
+                <div class="scanning-animation" id="scanningAnimation">
+                    <div class="scan-line"></div>
+                    <p>🤖 AI Analyzing Image...</p>
+                </div>
+                <div class="result-details" id="resultDetails" style="display: none;">
+                    <div class="confidence-badge">
+                        <span class="confidence-value" id="confidenceValue">95%</span>
+                        <span class="confidence-label">Confidence</span>
+                    </div>
+                    <h3>Waste Type: <span id="wasteType">Plastic Bottle</span></h3>
+                    <div class="waste-info">
+                        <div class="info-item">
+                            <i class="fas fa-recycle"></i>
+                            <div>
+                                <strong>Category:</strong>
+                                <span id="wasteCategory">Recyclable Plastic</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <strong>Estimated Value:</strong>
+                                <span id="estimatedValue">₹5-10 per kg</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-trash-alt"></i>
+                            <div>
+                                <strong>Disposal Method:</strong>
+                                <span id="disposalMethod">Recycle in blue bin</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-actions">
+                        <button class="primary-btn" onclick="schedulePickup()">
+                            <i class="fas fa-truck"></i> Schedule Pickup
+                        </button>
+                        <button class="secondary-btn" onclick="resetClassifier()">
+                            <i class="fas fa-redo"></i> Try Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Modal -->
+    <div class="ai-modal" id="chatbotModal">
+        <div class="ai-modal-content chatbot-modal">
+            <button class="close-modal" onclick="closeModal('chatbotModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="chatbot-header">
+                <div class="bot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <h3>WasteWise AI Assistant</h3>
+                    <p class="bot-status"><span class="status-dot"></span> Online</p>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-bubble">
+                        <p>Hello! 👋 I'm your AI waste management assistant. How can I help you today?</p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-questions">
+                <button onclick="askQuestion('How do I recycle e-waste?')">How do I recycle e-waste?</button>
+                <button onclick="askQuestion('What items can I sell?')">What items can I sell?</button>
+                <button onclick="askQuestion('Schedule a pickup')">Schedule a pickup</button>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Type your question...">
+                <button onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Price Estimator Modal -->
+    <div class="ai-modal" id="estimatorModal">
+        <div class="ai-modal-content estimator-modal">
+            <button class="close-modal" onclick="closeModal('estimatorModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2><i class="fas fa-calculator"></i> AI Price Estimator</h2>
+            <p class="modal-subtitle">Get instant value estimation for your waste items</p>
+
+            <div class="estimator-form">
+                <div class="form-group">
+                    <label>Waste Type</label>
+                    <select id="wasteTypeSelect" onchange="updateEstimate()">
+                        <option value="">Select waste type...</option>
+                        <option value="plastic">Plastic Waste</option>
+                        <option value="paper">Paper/Cardboard</option>
+                        <option value="metal">Metal Scrap</option>
+                        <option value="ewaste">E-Waste</option>
+                        <option value="glass">Glass</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Quantity (kg)</label>
+                    <input type="number" id="quantityInput" placeholder="Enter quantity" min="1" onchange="updateEstimate()">
+                </div>
+
+                <div class="form-group">
+                    <label>Condition</label>
+                    <select id="conditionSelect" onchange="updateEstimate()">
+                        <option value="">Select condition...</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="estimation-result" id="estimationResult" style="display: none;">
+                <div class="ai-thinking" id="aiThinking">
+                    <div class="thinking-animation">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p>AI calculating value...</p>
+                </div>
+                <div class="estimate-card" id="estimateCard" style="display: none;">
+                    <div class="estimate-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Estimated Value</h3>
+                    </div>
+                    <div class="estimate-price">
+                        <span class="currency">₹</span>
+                        <span class="amount" id="estimatedAmount">0</span>
+                    </div>
+                    <div class="estimate-range">
+                        Range: ₹<span id="minPrice">0</span> - ₹<span id="maxPrice">0</span>
+                    </div>
+                    <div class="estimate-factors">
+                        <h4>Pricing Factors:</h4>
+                        <div class="factor-item">
+                            <span>Market Rate</span>
+                            <span class="factor-value">₹<span id="marketRate">0</span>/kg</span>
+                        </div>
+                        <div class="factor-item">
+                            <span>Condition Bonus</span>
+                            <span class="factor-value" id="conditionBonus">+0%</span>
+                        </div>
+                        <div class="factor-item">
+                            <span>Quantity Bonus</span>
+                            <span class="factor-value" id="quantityBonus">+0%</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn" onclick="proceedWithEstimate()">
+                        <i class="fas fa-handshake"></i> Proceed to Sell
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating AI Button -->
+    <button class="floating-ai-btn" onclick="openChatbot()" title="AI Assistant">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><b>WASTE</b>WISE</h3>
+                        <p>AI-Powered waste management solutions.</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Marketplace</a></li>
+                        <li><a href="ai-assistant.html">AI Assistant</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 WasteWise. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+    <script src="components/navbar.js"></script>
+    <script src="ai-assistant.js"></script>
+</body>
+</html>

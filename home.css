@@ -556,3 +556,217 @@ footer {
     color: #d9d9d9;
     font-size: 1.5rem;
 }
+
+/* AI Features Showcase Section */
+.ai-features-showcase {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 80px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-features-showcase::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -200px;
+    right: -100px;
+}
+
+.ai-showcase-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.ai-badge-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 30px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.ai-badge-large i {
+    font-size: 1.5rem;
+}
+
+.ai-showcase-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.ai-showcase-header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+.ai-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.ai-showcase-card {
+    background: white;
+    color: var(--primary-text-color);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.ai-showcase-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.ai-card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+.ai-card-icon i {
+    font-size: 2.2rem;
+    color: white;
+}
+
+.ai-showcase-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-text-color);
+}
+
+.ai-showcase-card p {
+    color: var(--secondary-text-color);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.ai-features-list {
+    list-style: none;
+    text-align: left;
+    margin: 25px 0;
+}
+
+.ai-features-list li {
+    padding: 10px 0;
+    color: var(--secondary-text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ai-features-list i {
+    color: var(--green-theme-color);
+    font-size: 1rem;
+}
+
+.ai-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.ai-action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.ai-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.ai-stat-item {
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+/* AI Showcase Responsive */
+@media (max-width: 1200px) {
+    .ai-showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .ai-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ai-features-showcase {
+        padding: 60px var(--padding-inline-section);
+    }
+    
+    .ai-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .ai-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .ai-showcase-header h2 {
+        font-size: 2rem;
+    }
+    
+    .ai-showcase-header p {
+        font-size: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+}

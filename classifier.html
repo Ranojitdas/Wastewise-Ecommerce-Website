@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Waste Classifier - WasteWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ai-assistant.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <p class="banner-text">🤖 AI-Powered Waste Classification</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="container main-nav flex">
+            <a href="index.html" class="company-logo" aria-label="WasteWise home">
+                <h2><b>WASTE</b>WISE</h2>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <ul class="flex" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html" class="nav-link">Home</a></li>
+                    <li role="none"><a role="menuitem" href="store.html" class="nav-link">Marketplace</a></li>
+                    <li role="none"><a role="menuitem" href="collection.html" class="nav-link">Collection</a></li>
+                    <li role="none"><a role="menuitem" href="education.html" class="nav-link">Education</a></li>
+                    <li role="none"><a role="menuitem" href="ai-assistant.html" class="nav-link">🤖 AI Assistant</a></li>
+                    <li role="none"><a role="menuitem" href="impact.html" class="nav-link">Impact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Classifier Page -->
+    <section class="ai-page-hero">
+        <div class="container">
+            <a href="ai-assistant.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to AI Assistant
+            </a>
+            <h1><i class="fas fa-camera"></i> AI Waste Classifier</h1>
+            <p>Upload an image to instantly identify waste type and get disposal recommendations</p>
+        </div>
+    </section>
+
+    <section class="classifier-section">
+        <div class="container">
+            <div class="upload-area" id="uploadArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drop image here or click to upload</h3>
+                <p>Supports: JPG, PNG, JPEG</p>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="classification-result" id="classificationResult" style="display: none;">
+                <div class="result-image" id="resultImage"></div>
+                <div class="scanning-animation" id="scanningAnimation">
+                    <div class="scan-line"></div>
+                    <p>🤖 AI Analyzing Image...</p>
+                </div>
+                <div class="result-details" id="resultDetails" style="display: none;">
+                    <div class="confidence-badge">
+                        <span class="confidence-value" id="confidenceValue">95%</span>
+                        <span class="confidence-label">Confidence</span>
+                    </div>
+                    <h3>Waste Type: <span id="wasteType">Plastic Bottle</span></h3>
+                    <div class="waste-info">
+                        <div class="info-item">
+                            <i class="fas fa-recycle"></i>
+                            <div>
+                                <strong>Category:</strong>
+                                <span id="wasteCategory">Recyclable Plastic</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <strong>Estimated Value:</strong>
+                                <span id="estimatedValue">₹5-10 per kg</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-trash-alt"></i>
+                            <div>
+                                <strong>Disposal Method:</strong>
+                                <span id="disposalMethod">Recycle in blue bin</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-actions">
+                        <button class="primary-btn" onclick="schedulePickup()">
+                            <i class="fas fa-truck"></i> Schedule Pickup
+                        </button>
+                        <button class="secondary-btn" onclick="resetClassifier()">
+                            <i class="fas fa-redo"></i> Try Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-lightbulb"></i> How It Works</h2>
+                <p>See how our AI classifier identifies waste in just 3 simple steps</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Upload Image</h3>
+                    <p>Take a photo or upload an image of your waste item</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Analysis</h3>
+                    <p>Our AI analyzes colors, patterns, and features instantly</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Get Results</h3>
+                    <p>Receive classification, value estimate, and disposal guidance</p>
+                </div>
+            </div>
+
+            <!-- Example Classifications -->
+            <div class="examples-section">
+                <h3><i class="fas fa-images"></i> Example Classifications</h3>
+                <p class="examples-subtitle">Try clicking on any example below to see how it works</p>
+                
+                <div class="examples-grid">
+                    <div class="example-card" onclick="loadExample('plastic')">
+                        <div class="example-image plastic-demo">
+                            <i class="fas fa-bottle-water"></i>
+                        </div>
+                        <h4>Plastic Bottle</h4>
+                        <p class="example-type">Recyclable</p>
+                        <button class="example-btn">Try This Example</button>
+                    </div>
+
+                    <div class="example-card" onclick="loadExample('ewaste')">
+                        <div class="example-image ewaste-demo">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>E-Waste Phone</h4>
+                        <p class="example-type">E-Waste</p>
+                        <button class="example-btn">Try This Example</button>
+                    </div>
+
+                    <div class="example-card" onclick="loadExample('metal')">
+                        <div class="example-image metal-demo">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Metal Scrap</h4>
+                        <p class="example-type">Metal</p>
+                        <button class="example-btn">Try This Example</button>
+                    </div>
+
+                    <div class="example-card" onclick="loadExample('paper')">
+                        <div class="example-image paper-demo">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h4>Paper/Cardboard</h4>
+                        <p class="example-type">Recyclable</p>
+                        <button class="example-btn">Try This Example</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Tips -->
+            <div class="tips-section">
+                <h3><i class="fas fa-star"></i> Tips for Best Results</h3>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <i class="fas fa-sun"></i>
+                        <p>Use good lighting</p>
+                    </div>
+                    <div class="tip-item">
+                        <i class="fas fa-camera"></i>
+                        <p>Clear, focused images</p>
+                    </div>
+                    <div class="tip-item">
+                        <i class="fas fa-expand"></i>
+                        <p>Show full item</p>
+                    </div>
+                    <div class="tip-item">
+                        <i class="fas fa-ban"></i>
+                        <p>Avoid clutter in background</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3><b>WASTE</b>WISE</h3>
+                        <p>AI-Powered waste management solutions.</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="store.html">Marketplace</a></li>
+                        <li><a href="ai-assistant.html">AI Assistant</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2023 WasteWise. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/208552cd54.js" crossorigin="anonymous"></script>
+    <script src="components/navbar.js"></script>
+    <script src="ai-assistant.js"></script>
+</body>
+</html>
