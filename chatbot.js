@@ -1,6 +1,5 @@
 // Chatbot with Gemini AI Integration
-const GEMINI_API_KEY = 'AIzaSyAB3W3YpzRt7vfRCGWSH8rHoIy0BbBsl1U';
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
+import { GEMINI_API_KEY, GEMINI_API_URL } from './config.js';
 
 // System context for waste management
 const SYSTEM_CONTEXT = `You are WasteWise AI, a helpful assistant specialized in waste management, recycling, and environmental sustainability. 
