@@ -1,5 +1,5 @@
 // Chatbot with Gemini AI Integration
-import { GEMINI_API_KEY, GEMINI_API_URL } from './config.js';
+// Note: config.js must be loaded before this script
 
 // System context for waste management
 const SYSTEM_CONTEXT = `You are WasteWise AI, a helpful assistant specialized in waste management, recycling, and environmental sustainability. 

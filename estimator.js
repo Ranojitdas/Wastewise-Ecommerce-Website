@@ -1,5 +1,5 @@
 // Price Estimator with Gemini AI Integration
-import { GEMINI_API_KEY, GEMINI_API_URL } from './config.js';
+// Note: config.js must be loaded before this script
 
 // Rate limiting for free tier (gemini-1.5-flash-8b: 15 RPM)
 let apiRequestCount = 0;
