@@ -1,6 +1,30 @@
 // Price Estimator with Gemini AI Integration
 import { GEMINI_API_KEY, GEMINI_API_URL } from './config.js';
 
+// Rate limiting for free tier (gemini-1.5-flash-8b: 15 RPM)
+let apiRequestCount = 0;
+let lastRequestTime = Date.now();
+
+function canMakeApiRequest() {
+    const now = Date.now();
+    const oneMinute = 60000;
+    
+    // Reset counter if a minute has passed
+    if (now - lastRequestTime > oneMinute) {
+        apiRequestCount = 0;
+        lastRequestTime = now;
+    }
+    
+    // Allow max 10 requests per minute (leaving buffer under 15 RPM limit)
+    if (apiRequestCount >= 10) {
+        console.log('⚠️ Rate limit reached, using fallback insights');
+        return false;
+    }
+    
+    apiRequestCount++;
+    return true;
+}
+
 // Price estimation rates (per kg in INR)
 const priceRates = {
     plastic: 7,
@@ -157,6 +181,28 @@ function updateQuantityStep() {
     }
 }
 
+function showValidationError(elementId, message) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    // Add error styling
+    element.style.border = '2px solid #ff4444';
+    element.style.animation = 'shake 0.5s';
+    
+    // Show alert with message
+    alert(message);
+    
+    // Scroll to the field
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    element.focus();
+    
+    // Remove error styling after a delay
+    setTimeout(() => {
+        element.style.border = '';
+        element.style.animation = '';
+    }, 3000);
+}
+
 async function getAIEstimate() {
     console.log('=== getAIEstimate function called! ===');
     
@@ -169,17 +215,17 @@ async function getAIEstimate() {
     
     console.log('Form values:', { wasteType, productName, quantity, unit, condition });
     
-    // Validation
+    // Validation with better visual feedback
     if (!wasteType) {
-        alert('⚠️ Please select a waste type');
+        showValidationError('wasteTypeSelect', '⚠️ Please select a waste type');
         return;
     }
-    if (!quantity || quantity <= 0) {
-        alert('⚠️ Please enter a valid quantity');
+    if (!quantity || quantity <= 0 || isNaN(quantity)) {
+        showValidationError('quantityInput', '⚠️ Please enter a valid quantity (greater than 0)');
         return;
     }
     if (!condition) {
-        alert('⚠️ Please select item condition');
+        showValidationError('conditionSelect', '⚠️ Please select item condition');
         return;
     }
     
@@ -220,13 +266,16 @@ async function getAIEstimate() {
             
             const conditionBonusPercent = Math.round((conditionMultiplier - 1) * 100);
             
-            try {
-                const aiInsights = await getGeminiInsights(wasteType, productName, quantity, unit, condition, description, uploadedImageData);
-                setTimeout(() => {
-                    displayEstimateResults(estimatedPrice, minPrice, maxPrice, Math.round(itemValue.avg), conditionBonusPercent, quantityBonus, aiInsights);
-                }, 3500);
-            } catch (error) {
-                console.error('Gemini API Error:', error);
+            // Check rate limit before making API call
+            if (canMakeApiRequest()) {
+                try {
+                    const aiInsights = await getGeminiInsights(wasteType, productName, quantity, unit, condition, description, uploadedImageData);
+                    setTimeout(() => {
+                        displayEstimateResults(estimatedPrice, minPrice, maxPrice, Math.round(itemValue.avg), conditionBonusPercent, quantityBonus, aiInsights);
+                    }, 3500);
+                    return;
+                } catch (error) {
+                    console.error('Gemini API Error:', error);
                 if (error.message.includes('429')) {
                     console.log('⚠️ API rate limit reached, using local insights instead');
                 }
@@ -270,18 +319,23 @@ async function getAIEstimate() {
     minPrice = Math.round(estimatedPrice * 0.9);
     maxPrice = Math.round(estimatedPrice * 1.1);
     
-    try {
-        // Get AI insights using Gemini
-        const aiInsights = await getGeminiInsights(wasteType, productName, quantity, unit, condition, description, uploadedImageData);
-        
-        // Wait a bit for AI calculation effect
-        setTimeout(() => {
-            displayEstimateResults(estimatedPrice, minPrice, maxPrice, baseRate, conditionBonusPercent, quantityBonus, aiInsights);
-        }, 3500);
-        
-    } catch (error) {
-        console.error('Gemini API Error:', error);
-        // Fallback to local insights
+    // Check rate limit before making API call
+    if (canMakeApiRequest()) {
+        try {
+            // Get AI insights using Gemini
+            const aiInsights = await getGeminiInsights(wasteType, productName, quantity, unit, condition, description, uploadedImageData);
+            
+            // Wait a bit for AI calculation effect
+            setTimeout(() => {
+                displayEstimateResults(estimatedPrice, minPrice, maxPrice, baseRate, conditionBonusPercent, quantityBonus, aiInsights);
+            }, 3500);
+            return;
+        } catch (error) {
+            console.error('Gemini API Error:', error);
+        }
+    }
+    
+    // Fallback to local insights (rate limited or API error)
         const fallbackInsights = getLocalInsights(wasteType, productName, quantity, unit, condition);
         setTimeout(() => {
             displayEstimateResults(estimatedPrice, minPrice, maxPrice, baseRate, conditionBonusPercent, quantityBonus, fallbackInsights);
@@ -327,8 +381,8 @@ Keep it concise, practical, and encouraging. Use simple language.`;
             }],
             generationConfig: {
                 temperature: 0.7,
-                maxOutputTokens: 150,
-                topP: 0.8,
+                maxOutputTokens: 100,  // Reduced from 150 for efficiency
+                topP: 0.9,
                 topK: 40
             }
         })
@@ -352,14 +406,14 @@ function getLocalInsights(wasteType, productName, quantity, unit, condition) {
     const quantityText = `${quantity} ${unit}`;
     
     const insights = {
-        plastic: `Plastic waste${productInfo} has good demand in recycling markets. Your ${quantityText} of ${condition} condition plastic can be processed into new products. Tip: Clean and sorted plastic fetches better prices!`,
-        paper: `Paper and cardboard${productInfo} are always in demand for recycling. Your ${quantityText} in ${condition} condition is valuable for paper mills. Tip: Keep paper dry and free from contaminants for best prices.`,
-        metal: `Metal scrap${productInfo} has excellent market value due to high recycling rates. Your ${quantityText} of ${condition} metal can be directly reprocessed. Tip: Separate different metal types for premium pricing!`,
-        ewaste: `E-waste${productInfo} contains valuable materials like gold, copper, and rare metals. Your ${quantityText} of ${condition} electronics has good recovery value. Tip: Include all accessories and cables to maximize value.`,
-        glass: `Glass${productInfo} is 100% recyclable and in steady demand. Your ${quantityText} in ${condition} condition is suitable for remelting. Tip: Separate glass by color for better recycling efficiency.`
+        plastic: `Plastic waste${productInfo} has good demand in recycling markets. Your ${quantityText} of ${condition} condition plastic can be processed into new products. Tip: Clean and sorted plastic fetches better prices! 💡`,
+        paper: `Paper and cardboard${productInfo} are always in demand for recycling. Your ${quantityText} in ${condition} condition is valuable for paper mills. Tip: Keep paper dry and free from contaminants for best prices. 📄`,
+        metal: `Metal scrap${productInfo} has excellent market value due to high recycling rates. Your ${quantityText} of ${condition} metal can be directly reprocessed. Tip: Separate different metal types for premium pricing! 🔩`,
+        ewaste: `E-waste${productInfo} contains valuable materials like gold, copper, and rare metals. Your ${quantityText} of ${condition} electronics has good recovery value. Tip: Include all accessories and cables to maximize value. 📱`,
+        glass: `Glass${productInfo} is 100% recyclable and in steady demand. Your ${quantityText} in ${condition} condition is suitable for remelting. Tip: Separate glass by color for better recycling efficiency. 🍶`
     };
     
-    return insights[wasteType] || `Your ${quantityText} of ${condition} ${wasteType}${productInfo} has good recycling value in current market conditions.`;
+    return insights[wasteType] || `Your ${quantityText} of ${condition} ${wasteType}${productInfo} has good recycling value in current market conditions. ♻️`;
 }
 
 function displayEstimateResults(estimatedPrice, minPrice, maxPrice, baseRate, conditionBonus, quantityBonus, insights) {
@@ -443,3 +497,19 @@ function proceedWithEstimate() {
         window.location.href = 'collection.html';
     }, 1000);
 }
+
+// Make functions globally accessible for HTML onclick handlers
+window.getAIEstimate = getAIEstimate;
+window.resetEstimator = resetEstimator;
+window.proceedWithEstimate = proceedWithEstimate;
+
+// Add shake animation CSS
+const style = document.createElement('style');
+style.textContent = `
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+`;
+document.head.appendChild(style);

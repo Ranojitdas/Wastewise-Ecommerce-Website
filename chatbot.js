@@ -13,7 +13,7 @@ You help users with:
 
 Keep responses concise (2-4 sentences), friendly, and practical. Use emojis occasionally to make it engaging.`;
 
-// Rate limiting (free tier: 60 requests per minute)
+// Rate limiting (free tier gemini-1.5-flash: 15 RPM, we'll use max 10 RPM for safety)
 let requestCount = 0;
 let requestTimer = null;
 
@@ -81,9 +81,9 @@ async function sendMessage() {
     
     if (!message) return;
     
-    // Check rate limit
-    if (requestCount >= 60) {
-        addMessageToUI('⚠️ Rate limit reached. Please wait a moment before sending more messages.', 'bot');
+    // Check rate limit (10 requests per minute for safety margin)
+    if (requestCount >= 10) {
+        addMessageToUI('⚠️ Too many requests. Please wait a moment before sending more messages. (Rate limit protection)', 'bot');
         return;
     }
     
@@ -112,8 +112,8 @@ async function sendMessage() {
                 }],
                 generationConfig: {
                     temperature: 0.7,
-                    maxOutputTokens: 200,
-                    topP: 0.8,
+                    maxOutputTokens: 150,  // Reduced from 200 for efficiency
+                    topP: 0.9,
                     topK: 40
                 }
             })
@@ -281,6 +281,11 @@ function clearChat() {
         `;
     }
 }
+
+// Make functions globally accessible for HTML onclick handlers
+window.askQuestion = askQuestion;
+window.sendMessage = sendMessage;
+window.clearChat = clearChat;
 
 // Add CSS for typing indicator
 const style = document.createElement('style');
