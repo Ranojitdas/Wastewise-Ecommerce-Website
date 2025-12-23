@@ -273,7 +273,7 @@ function classifyWithFallback(imageDataUrl) {
     img.src = imageDataUrl;
 }
 
-// Analyze image colors for fallback classification
+// Advanced image analysis for fallback classification
 function analyzeImageColors(img) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -281,30 +281,131 @@ function analyzeImageColors(img) {
     canvas.height = img.height;
     ctx.drawImage(img, 0, 0);
     
-    // Sample multiple points
+    // Multi-region sampling for better accuracy (25 points across image)
     const samples = [];
-    for (let i = 0; i < 5; i++) {
-        const x = Math.floor(img.width * (0.2 + i * 0.15));
-        const y = Math.floor(img.height / 2);
-        const pixel = ctx.getImageData(x, y, 1, 1).data;
-        samples.push({ r: pixel[0], g: pixel[1], b: pixel[2] });
+    const regions = 5;
+    for (let y = 0; y < regions; y++) {
+        for (let x = 0; x < regions; x++) {
+            const px = Math.floor((x + 0.5) * img.width / regions);
+            const py = Math.floor((y + 0.5) * img.height / regions);
+            const pixel = ctx.getImageData(px, py, 1, 1).data;
+            samples.push({ 
+                r: pixel[0], 
+                g: pixel[1], 
+                b: pixel[2],
+                brightness: (pixel[0] + pixel[1] + pixel[2]) / 3
+            });
+        }
     }
     
-    // Calculate average color
+    // Calculate color statistics
     const avg = samples.reduce((acc, s) => ({
         r: acc.r + s.r / samples.length,
         g: acc.g + s.g / samples.length,
-        b: acc.b + s.b / samples.length
+        b: acc.b + s.b / samples.length,
+        brightness: acc.brightness + s.brightness / samples.length
+    }), { r: 0, g: 0, b: 0, brightness: 0 });
+    
+    // Calculate color variance (helps detect uniform vs mixed colors)
+    const variance = samples.reduce((acc, s) => ({
+        r: acc.r + Math.pow(s.r - avg.r, 2),
+        g: acc.g + Math.pow(s.g - avg.g, 2),
+        b: acc.b + Math.pow(s.b - avg.b, 2)
     }), { r: 0, g: 0, b: 0 });
     
-    // Classify based on color
-    if (avg.b > avg.r + 20 && avg.b > avg.g + 20) return 'plastic';
-    if (avg.g > avg.r + 20 && avg.g > avg.b + 20) return 'glass';
-    if (avg.r > 200 && avg.g > 180 && avg.b > 150) return 'paper';
-    if (avg.r > avg.g + 30 && avg.r > avg.b + 30) return 'metal';
-    if (avg.r < 80 && avg.g < 80 && avg.b < 80) return 'ewaste';
+    const colorVariance = (variance.r + variance.g + variance.b) / samples.length;
+    const isUniform = colorVariance < 2000; // Low variance = uniform color
     
-    return 'plastic';
+    // Calculate color dominance
+    const rDominance = avg.r - (avg.g + avg.b) / 2;
+    const gDominance = avg.g - (avg.r + avg.b) / 2;
+    const bDominance = avg.b - (avg.r + avg.g) / 2;
+    
+    // HSV conversion for better color detection
+    const r = avg.r / 255, g = avg.g / 255, b = avg.b / 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    const l = (max + min) / 2;
+    const s = l > 0.5 ? (max - min) / (2 - max - min) : (max - min) / (max + min);
+    
+    // Advanced classification logic
+    
+    // Dark objects (low brightness) - likely e-waste or metal
+    if (avg.brightness < 60) {
+        // Very dark and uniform = electronics (screens, casings)
+        if (isUniform || colorVariance < 1500) {
+            return 'ewaste';
+        }
+        // Dark with texture = metal (often has reflections/grain)
+        return 'metal';
+    }
+    
+    // Bright objects (high brightness)
+    if (avg.brightness > 200) {
+        // White/bright with low saturation = paper
+        if (s < 0.2) {
+            return 'paper';
+        }
+        // Bright and translucent colors = plastic bottles
+        if (bDominance > 15 || (avg.b > 180 && avg.r < 200)) {
+            return 'plastic';
+        }
+    }
+    
+    // Blue dominant (common for plastic bottles, containers)
+    if (bDominance > 25 && avg.b > 100) {
+        return 'plastic';
+    }
+    
+    // Green dominant with high saturation = glass bottles
+    if (gDominance > 20 && s > 0.3 && avg.g > 80) {
+        return 'glass';
+    }
+    
+    // Brown/orange tones (cardboard, rust, copper)
+    if (avg.r > avg.g && avg.g > avg.b && avg.r - avg.b > 30) {
+        // Matte brown = cardboard/paper
+        if (s < 0.4 && avg.brightness > 100) {
+            return 'paper';
+        }
+        // Shiny metallic = copper/brass
+        return 'metal';
+    }
+    
+    // Gray metallic (aluminum, steel)
+    if (Math.abs(avg.r - avg.g) < 15 && Math.abs(avg.g - avg.b) < 15 && s < 0.15) {
+        // Bright gray + uniform = aluminum
+        if (avg.brightness > 120 && isUniform) {
+            return 'metal';
+        }
+        // Dark gray = electronics or metal parts
+        if (avg.brightness < 120) {
+            return colorVariance > 1500 ? 'metal' : 'ewaste';
+        }
+    }
+    
+    // Red/pink tones (less common, usually plastic or painted metal)
+    if (rDominance > 30) {
+        return avg.brightness > 100 ? 'plastic' : 'metal';
+    }
+    
+    // Clear/transparent appearance (glass or clear plastic)
+    if (s < 0.15 && avg.brightness > 150 && avg.brightness < 240) {
+        // High variance with low saturation = glass (shows background through transparency)
+        return colorVariance > 1800 ? 'glass' : 'plastic';
+    }
+    
+    // Organic/natural brown tones
+    if (avg.r > 100 && avg.g > 70 && avg.b < 100 && avg.r > avg.b + 20) {
+        return 'organic';
+    }
+    
+    // Default: Use brightness and texture as final classifier
+    if (avg.brightness > 180) return 'paper';  // Likely white/light paper
+    if (avg.brightness < 100 && !isUniform) return 'metal';  // Dark textured = metal
+    if (bDominance > 10) return 'plastic';  // Slight blue bias = plastic
+    if (gDominance > 10) return 'glass';    // Slight green = glass
+    
+    return 'plastic';  // Most common recyclable
 }
 
 // Display classification results
