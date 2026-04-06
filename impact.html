@@ -108,6 +108,73 @@
         </div>
     </section>
 
+    <section class="impact-lab-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Impact Lab</h2>
+                <p>Turn rough recycling numbers into practical savings, goals, and next steps.</p>
+            </div>
+
+            <div class="impact-lab-grid">
+                <div class="impact-lab-card calculator-card">
+                    <h3>Quick Impact Calculator</h3>
+                    <p>Estimate what your recycling means in carbon, water, and landfill savings.</p>
+
+                    <div class="calculator-form">
+                        <label for="recycledKg">Recycled waste in kg</label>
+                        <input type="number" id="recycledKg" min="1" value="25" />
+
+                        <label for="materialType">Main material</label>
+                        <select id="materialType">
+                            <option value="plastic">Plastic</option>
+                            <option value="paper">Paper & Cardboard</option>
+                            <option value="ewaste">E-Waste</option>
+                            <option value="metal">Metal</option>
+                            <option value="glass">Glass</option>
+                            <option value="mixed">Mixed Waste</option>
+                        </select>
+
+                        <button class="primary-btn" id="calculateImpactBtn">Generate Impact</button>
+                    </div>
+                </div>
+
+                <div class="impact-lab-card insight-card">
+                    <h3>Live Insight</h3>
+                    <div class="insight-value" id="impactHeadline">25 kg recycled can save about 40 kg of CO2.</div>
+                    <p id="impactInsight">Paper and cardboard usually have the biggest forest-saving effect.</p>
+                    <div class="benchmark-strip">
+                        <span>Landfill reduced</span>
+                        <strong id="landfillSaved">0.3 m³</strong>
+                    </div>
+                    <div class="benchmark-strip">
+                        <span>Water saved</span>
+                        <strong id="waterSaved">0 L</strong>
+                    </div>
+                    <div class="benchmark-strip">
+                        <span>Tree equivalent</span>
+                        <strong id="treeEquivalent">0.0 trees</strong>
+                    </div>
+                </div>
+
+                <div class="impact-lab-card action-card">
+                    <h3>Next Best Action</h3>
+                    <ul class="action-list" id="impactActions">
+                        <li>Sort waste by material before pickup.</li>
+                        <li>Keep recyclables clean and dry.</li>
+                        <li>Book one extra pickup this week.</li>
+                    </ul>
+                    <div class="goal-box">
+                        <span>Goal progress</span>
+                        <div class="goal-bar">
+                            <div class="goal-fill" id="goalFill"></div>
+                        </div>
+                        <strong id="goalText">25 / 100 kg this month</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="breakdown-section">
         <div class="container">
             <h2>Waste Breakdown Analysis</h2>
@@ -418,5 +485,4 @@
     <script src="components/navbar.js"></script>
     <script src="impact.js"></script>
 </body>
-</html>
 </html>

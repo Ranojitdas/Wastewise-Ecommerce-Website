@@ -3,6 +3,14 @@
 class ImpactTracker {
     constructor() {
         this.userPoints = 1234;
+        this.impactProfiles = {
+            plastic: { co2: 1.6, water: 18, landfill: 0.012, trees: 0.002, note: 'Plastic benefits most from clean sorting and bottle separation.' },
+            paper: { co2: 1.1, water: 26, landfill: 0.02, trees: 0.03, note: 'Paper and cardboard create strong tree-saving impact.' },
+            ewaste: { co2: 8.5, water: 9, landfill: 0.01, trees: 0.001, note: 'E-waste has the highest material recovery value per kg.' },
+            metal: { co2: 3.8, water: 12, landfill: 0.014, trees: 0.002, note: 'Metal recycling delivers strong carbon savings and resale value.' },
+            glass: { co2: 0.7, water: 7, landfill: 0.018, trees: 0.001, note: 'Glass recycling is best when items stay unbroken and separated.' },
+            mixed: { co2: 1.9, water: 16, landfill: 0.013, trees: 0.003, note: 'Mixed waste is useful, but separation improves every metric.' }
+        };
         this.init();
     }
 
@@ -12,6 +20,7 @@ class ImpactTracker {
         this.setupRewardButtons();
         this.setupAchievementInteractions();
         this.loadUserProgress();
+        this.setupImpactLab();
     }
 
     // Animate counter numbers with smooth count-up effect
@@ -333,6 +342,104 @@ class ImpactTracker {
             trees: treesEquivalent,
             bottles: plasticBottlesSaved
         };
+    }
+
+    setupImpactLab() {
+        const button = document.getElementById('calculateImpactBtn');
+        const recycledKgInput = document.getElementById('recycledKg');
+        const materialSelect = document.getElementById('materialType');
+
+        if (!button || !recycledKgInput || !materialSelect) {
+            return;
+        }
+
+        const runCalculator = () => {
+            const recycledKg = Math.max(0, parseFloat(recycledKgInput.value) || 0);
+            const material = materialSelect.value;
+            const profile = this.impactProfiles[material] || this.impactProfiles.mixed;
+
+            const co2Saved = recycledKg * profile.co2;
+            const waterSaved = recycledKg * profile.water;
+            const landfillSaved = recycledKg * profile.landfill;
+            const treeEquivalent = recycledKg * profile.trees;
+
+            document.getElementById('impactHeadline').textContent = `${recycledKg.toFixed(0)} kg of ${this.formatMaterial(material)} can save about ${co2Saved.toFixed(1)} kg of CO2.`;
+            document.getElementById('impactInsight').textContent = profile.note;
+            document.getElementById('landfillSaved').textContent = `${landfillSaved.toFixed(1)} m³`;
+            document.getElementById('waterSaved').textContent = `${Math.round(waterSaved).toLocaleString()} L`;
+            document.getElementById('treeEquivalent').textContent = `${treeEquivalent.toFixed(1)} trees`;
+
+            const goalProgress = Math.min((recycledKg / 100) * 100, 100);
+            document.getElementById('goalFill').style.width = `${goalProgress}%`;
+            document.getElementById('goalText').textContent = `${recycledKg.toFixed(0)} / 100 kg this month`;
+
+            const actions = this.getImpactActions(material, recycledKg);
+            const actionList = document.getElementById('impactActions');
+            actionList.innerHTML = '';
+            actions.forEach(action => {
+                const item = document.createElement('li');
+                item.textContent = action;
+                actionList.appendChild(item);
+            });
+        };
+
+        button.addEventListener('click', runCalculator);
+        recycledKgInput.addEventListener('change', runCalculator);
+        materialSelect.addEventListener('change', runCalculator);
+        runCalculator();
+    }
+
+    formatMaterial(material) {
+        const labels = {
+            plastic: 'plastic',
+            paper: 'paper and cardboard',
+            ewaste: 'e-waste',
+            metal: 'metal',
+            glass: 'glass',
+            mixed: 'mixed waste'
+        };
+
+        return labels[material] || 'mixed waste';
+    }
+
+    getImpactActions(material, recycledKg) {
+        const baseActions = [
+            'Keep items clean and dry before collection.',
+            'Separate materials to improve recycling quality.'
+        ];
+
+        const materialActions = {
+            plastic: [
+                'Remove caps and labels when possible.',
+                'Bundle bottles to save pickup space.'
+            ],
+            paper: [
+                'Flatten cardboard to reduce volume.',
+                'Keep paper away from moisture.'
+            ],
+            ewaste: [
+                'Back up and wipe devices before pickup.',
+                'Store cables, chargers, and batteries separately.'
+            ],
+            metal: [
+                'Sort aluminum, copper, and steel separately.',
+                'Remove non-metal parts for better recovery.'
+            ],
+            glass: [
+                'Keep glass in a separate box or bag.',
+                'Avoid mixing broken glass with other recyclables.'
+            ],
+            mixed: [
+                'Split out e-waste, metal, and paper if you can.',
+                'A little sorting increases the value of the whole pickup.'
+            ]
+        };
+
+        const volumeAction = recycledKg >= 50
+            ? 'You are in a strong bulk-pickup range. Book a regular collection schedule.'
+            : 'A single pickup this week is enough to build momentum.';
+
+        return [...baseActions, ...(materialActions[material] || materialActions.mixed), volumeAction];
     }
 }
 

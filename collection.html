@@ -83,6 +83,92 @@
         </div>
     </section>
 
+    <section class="collection-lab-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Collection Assistant</h2>
+                <p>Check preparation steps, service priority, and impact before you book a pickup.</p>
+            </div>
+
+            <div class="collection-lab-grid">
+                <div class="collection-lab-card assistant-card">
+                    <h3>Quick Collection Check</h3>
+                    <div class="collection-lab-form">
+                        <label for="collectionWasteType">Waste type</label>
+                        <select id="collectionWasteType">
+                            <option value="ewaste">E-Waste</option>
+                            <option value="household">Household Waste</option>
+                            <option value="organic">Organic Waste</option>
+                            <option value="plastics">Plastics & Glass</option>
+                        </select>
+
+                        <label for="collectionQuantity">Collection size</label>
+                        <select id="collectionQuantity">
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                            <option value="bulk">Bulk</option>
+                        </select>
+
+                        <label for="collectionUrgency">Pickup urgency</label>
+                        <select id="collectionUrgency">
+                            <option value="standard">Standard</option>
+                            <option value="soon">Within 24 hours</option>
+                            <option value="urgent">Same-day / urgent</option>
+                        </select>
+
+                        <label for="collectionItems">Items to collect</label>
+                        <textarea id="collectionItems" rows="3" placeholder="Example: phone chargers, cardboard, bottles, old mixer"></textarea>
+
+                        <button class="primary-btn" id="assessCollectionBtn" type="button">Generate Collection Plan</button>
+                    </div>
+                </div>
+
+                <div class="collection-lab-card insight-card">
+                    <h3>Pickup Plan</h3>
+                    <div class="plan-stat">
+                        <span>Readiness score</span>
+                        <strong id="readinessScore">85%</strong>
+                    </div>
+                    <div class="plan-stat">
+                        <span>Recommended window</span>
+                        <strong id="pickupWindow">Morning</strong>
+                    </div>
+                    <div class="plan-stat">
+                        <span>Priority level</span>
+                        <strong id="priorityLevel">Standard</strong>
+                    </div>
+                    <div class="impact-strip">
+                        <span>Estimated impact</span>
+                        <strong id="collectionImpact">12 kg CO2 saved</strong>
+                    </div>
+                    <div class="prep-box">
+                        <h4>Prep tips</h4>
+                        <ul id="prepTipsList">
+                            <li>Keep items clean and dry.</li>
+                            <li>Separate batteries and cables.</li>
+                            <li>Place everything near the pickup point.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collection-lab-card checklist-card">
+                    <h3>Best Before Pickup</h3>
+                    <ul class="checklist">
+                        <li>Sort recyclables by material.</li>
+                        <li>Flatten cardboard boxes if possible.</li>
+                        <li>Remove food residue and liquids.</li>
+                        <li>Bundle loose items in one area.</li>
+                        <li>Keep fragile items safely packed.</li>
+                    </ul>
+                    <div class="service-note">
+                        <strong>Tip:</strong> a cleaner pickup usually means faster processing and better recovery value.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="collection-types">
         <div class="container">
             <div class="section-header">
@@ -144,6 +230,28 @@
             </div>
         </div>
     </section>
+
+    <section class="pickup-history" id="pickupHistory" style="display: none;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recent Pickups</h2>
+                <p>Your latest collection requests and tracking history</p>
+            </div>
+            <div class="history-grid" id="historyGrid"></div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="trackingModal" style="display: none;">
+        <div class="modal-content tracking-modal-content">
+            <button class="modal-close" type="button" onclick="hideTrackingModal()">&times;</button>
+            <h3>Track Pickup</h3>
+            <div class="tracking-search">
+                <input type="text" id="trackingNumber" placeholder="Enter tracking number">
+                <button class="primary-btn" type="button" onclick="trackPickup()">Search</button>
+            </div>
+            <div id="trackingResult" class="tracking-result"></div>
+        </div>
+    </div>
 
     <section class="schedule-section" id="schedule">
         <div class="container">
@@ -484,5 +592,4 @@
     <script src="components/navbar.js"></script>
     <script src="collection.js"></script>
 </body>
-</html>
 </html>

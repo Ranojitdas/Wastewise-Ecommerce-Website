@@ -5,6 +5,56 @@ class CollectionManager {
         this.currentStep = 1;
         this.totalSteps = 3;
         this.pickupData = {};
+        this.collectionProfiles = {
+            ewaste: {
+                label: 'E-Waste',
+                window: 'Morning is best for electronics handling',
+                priority: 'High priority',
+                impact: '18 kg CO2 saved per 10 kg',
+                prepScore: 92,
+                tips: [
+                    'Back up and wipe devices before pickup.',
+                    'Remove batteries where possible.',
+                    'Keep chargers, cables, and accessories together.'
+                ]
+            },
+            household: {
+                label: 'Household Waste',
+                window: 'Afternoon works well for bulky items',
+                priority: 'Standard priority',
+                impact: '10 kg CO2 saved per 10 kg',
+                prepScore: 80,
+                tips: [
+                    'Group furniture and appliances together.',
+                    'Clear walkways so the team can move safely.',
+                    'Mark any fragile or heavy items.'
+                ]
+            },
+            organic: {
+                label: 'Organic Waste',
+                window: 'Early pickup keeps organics fresh',
+                priority: 'Time-sensitive',
+                impact: 'Biogas and compost recovery potential',
+                prepScore: 88,
+                tips: [
+                    'Use sealed containers if possible.',
+                    'Keep food waste separate from dry waste.',
+                    'Avoid mixing plastic wrappers with organics.'
+                ]
+            },
+            plastics: {
+                label: 'Plastics & Glass',
+                window: 'Flexible pickup window',
+                priority: 'Standard priority',
+                impact: '12 kg CO2 saved per 10 kg',
+                prepScore: 84,
+                tips: [
+                    'Rinse bottles and containers.',
+                    'Flatten boxes and pack glass carefully.',
+                    'Sort plastics separately from glass.'
+                ]
+            }
+        };
         this.init();
     }
 
@@ -13,6 +63,7 @@ class CollectionManager {
         this.setupDateConstraints();
         this.loadPickupHistory();
         this.setupFormValidation();
+        this.setupCollectionLab();
     }
 
     setupEventListeners() {
@@ -59,8 +110,8 @@ class CollectionManager {
     setupFormValidation() {
         const inputs = document.querySelectorAll('input[required], textarea[required], select[required]');
         inputs.forEach(input => {
-            input.addEventListener('blur', this.validateField);
-            input.addEventListener('input', this.clearValidationError);
+            input.addEventListener('blur', (e) => this.validateField(e));
+            input.addEventListener('input', (e) => this.clearValidationError(e));
         });
     }
 
@@ -203,6 +254,51 @@ class CollectionManager {
 
         // Calculate estimated cost (keeping it free for now)
         document.getElementById('estimatedCost').textContent = 'Free';
+    }
+
+    setupCollectionLab() {
+        const button = document.getElementById('assessCollectionBtn');
+        const wasteType = document.getElementById('collectionWasteType');
+        const quantity = document.getElementById('collectionQuantity');
+        const urgency = document.getElementById('collectionUrgency');
+        const items = document.getElementById('collectionItems');
+
+        if (!button || !wasteType || !quantity || !urgency || !items) {
+            return;
+        }
+
+        const updateLab = () => {
+            const profile = this.collectionProfiles[wasteType.value] || this.collectionProfiles.household;
+            const quantityScore = { small: 95, medium: 88, large: 78, bulk: 70 }[quantity.value] || 80;
+            const urgencyScore = { standard: 85, soon: 78, urgent: 70 }[urgency.value] || 85;
+            const readinessScore = Math.round((profile.prepScore + quantityScore + urgencyScore) / 3);
+
+            document.getElementById('readinessScore').textContent = `${readinessScore}%`;
+            document.getElementById('pickupWindow').textContent = urgency.value === 'urgent' ? 'Same-day possible' : profile.window;
+            document.getElementById('priorityLevel').textContent = urgency.value === 'urgent' ? 'Urgent priority' : profile.priority;
+            document.getElementById('collectionImpact').textContent = profile.impact;
+
+            const tipsList = document.getElementById('prepTipsList');
+            const tips = profile.tips.slice();
+
+            if (items.value.trim()) {
+                tips.unshift(`Prepare these items: ${items.value.trim()}`);
+            }
+
+            if (quantity.value === 'bulk') {
+                tips.push('Bulk collections work best when items are grouped in one corner or room.');
+            }
+
+            tipsList.innerHTML = tips.map(tip => `<li>${tip}</li>`).join('');
+        };
+
+        button.addEventListener('click', updateLab);
+        [wasteType, quantity, urgency, items].forEach(field => {
+            field.addEventListener('input', updateLab);
+            field.addEventListener('change', updateLab);
+        });
+
+        updateLab();
     }
 
     getWasteTypeLabel(type) {
